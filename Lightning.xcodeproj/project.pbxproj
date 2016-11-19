@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62348C801DE0C0490060D4FF /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62348C7F1DE0C0490060D4FF /* ActivityState.swift */; };
+		62348C821DE0C1FF0060D4FF /* ActivityStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */; };
 		6270EE8B1DE08E38009A5B29 /* Lightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6270EE811DE08E38009A5B29 /* Lightning.framework */; };
 		6270EE921DE08E38009A5B29 /* Lightning.h in Headers */ = {isa = PBXBuildFile; fileRef = 6270EE841DE08E38009A5B29 /* Lightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6270EE9C1DE09305009A5B29 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9B1DE09305009A5B29 /* Result.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62348C7F1DE0C0490060D4FF /* ActivityState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
+		62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityStateTests.swift; sourceTree = "<group>"; };
 		6270EE811DE08E38009A5B29 /* Lightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6270EE841DE08E38009A5B29 /* Lightning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lightning.h; sourceTree = "<group>"; };
 		6270EE851DE08E38009A5B29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 				6270EE841DE08E38009A5B29 /* Lightning.h */,
 				6270EE851DE08E38009A5B29 /* Info.plist */,
 				6270EE9B1DE09305009A5B29 /* Result.swift */,
+				62348C7F1DE0C0490060D4FF /* ActivityState.swift */,
 			);
 			path = Lightning;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 			children = (
 				6270EE911DE08E38009A5B29 /* Info.plist */,
 				6270EE9F1DE0945B009A5B29 /* ResultTests.swift */,
+				62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */,
 			);
 			path = LightningTests;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6270EE9C1DE09305009A5B29 /* Result.swift in Sources */,
+				62348C801DE0C0490060D4FF /* ActivityState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62348C821DE0C1FF0060D4FF /* ActivityStateTests.swift in Sources */,
 				6270EEA01DE0945B009A5B29 /* ResultTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +412,7 @@
 				6270EE971DE08E38009A5B29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6270EE981DE08E38009A5B29 /* Build configuration list for PBXNativeTarget "LightningTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +421,7 @@
 				6270EE9A1DE08E38009A5B29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
