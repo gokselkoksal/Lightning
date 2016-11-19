@@ -1,6 +1,6 @@
 # Lightning
 
-Lightning provides components to make development easier. (Swift 3)
+Lightning provides components to make Swift development easier.
 
 ## Components
 
@@ -42,3 +42,14 @@ func someProcess() {
     }
 }
 ```
+### CollectionChange
+```swift
+public enum CollectionChange {
+    case reload
+    case update(IndexSetConvertible)
+    case insertion(IndexSetConvertible)
+    case deletion(IndexSetConvertible)
+    case move(from: Int, to: Int)
+}
+```
+Enum to encapsulate change in any collection. Can be used to model `UITableView`/`UICollectionView` or any `CollectionType` changes.
