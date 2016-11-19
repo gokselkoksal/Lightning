@@ -1,8 +1,8 @@
 # Lightning
 
-Lightning provides helper objects to make development easier. (Swift 3)
+Lightning provides components to make development easier. (Swift 3)
 
-## Objects
+## Components
 
 ### Result
 
