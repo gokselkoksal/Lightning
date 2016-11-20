@@ -53,3 +53,25 @@ public enum CollectionChange {
 }
 ```
 Enum to encapsulate change in any collection. Can be used to model `UITableView`/`UICollectionView` or any `CollectionType` changes.
+
+### TaskState
+```swift
+public struct TaskState<Value> {   
+    public private(set) var status: TaskStatus = .idle // inProgress, cancelled, finished
+    public private(set) var result: Result<Value>?
+    public private(set) var latestValue: Value?
+}
+```
+Component to model a task through its lifecycle. This can be useful if you have multiple tasks to track separately as in the following example.
+```swift
+var currencyTask: TaskState<Currency> {
+    didSet {
+        // Update currency widget. (Show/hide loading view, show error, show result etc.)
+    }
+}
+var weatherTask: TaskState<Weather> {
+    didSet {
+        // Update weather widget. (Show/hide loading view, show error, show result etc.)
+    }
+}
+```
