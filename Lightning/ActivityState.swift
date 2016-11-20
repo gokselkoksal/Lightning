@@ -24,6 +24,9 @@ public struct ActivityState {
     /// True if `isActive` flag is toggled recently.
     public private(set) var isToggled = false
     
+    /// Creates an empty activity state.
+    public init() { }
+    
     /// Flag to indicate if there are live activities.
     public var isActive: Bool {
         return count > 0
