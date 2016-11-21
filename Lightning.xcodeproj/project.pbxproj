@@ -87,10 +87,7 @@
 			children = (
 				6270EE841DE08E38009A5B29 /* Lightning.h */,
 				6270EE851DE08E38009A5B29 /* Info.plist */,
-				6270EE9B1DE09305009A5B29 /* Result.swift */,
-				62348C7F1DE0C0490060D4FF /* ActivityState.swift */,
-				62348C831DE0C9250060D4FF /* CollectionChange.swift */,
-				62348C871DE0D00D0060D4FF /* TaskState.swift */,
+				627FC7451DE3685C001A02E6 /* Sources */,
 			);
 			path = Lightning;
 			sourceTree = "<group>";
@@ -105,6 +102,17 @@
 				62348C891DE0D5880060D4FF /* TaskStateTests.swift */,
 			);
 			path = LightningTests;
+			sourceTree = "<group>";
+		};
+		627FC7451DE3685C001A02E6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6270EE9B1DE09305009A5B29 /* Result.swift */,
+				62348C7F1DE0C0490060D4FF /* ActivityState.swift */,
+				62348C831DE0C9250060D4FF /* CollectionChange.swift */,
+				62348C871DE0D00D0060D4FF /* TaskState.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
