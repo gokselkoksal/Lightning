@@ -1,6 +1,7 @@
 # Lightning
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt)
 
 Lightning provides components to make Swift development easier.
 
