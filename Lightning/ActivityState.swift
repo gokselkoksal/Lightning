@@ -19,7 +19,12 @@ public struct ActivityState {
     }
     
     /// Count of live activities.
-    public private(set) var count: UInt = 0
+    public private(set) var count: UInt = 0 {
+        didSet {
+            let wasActive = (oldValue > 0)
+            isToggled = (wasActive != isActive)
+        }
+    }
     
     /// True if `isActive` flag is toggled recently.
     public private(set) var isToggled = false
@@ -34,7 +39,6 @@ public struct ActivityState {
     
     /// Adds a new activity to tracker.
     public mutating func add() {
-        isToggled = (count == 0)
         count += 1
     }
     
@@ -44,7 +48,6 @@ public struct ActivityState {
             throw Exception.nothingToRemove
         }
         count -= 1
-        isToggled = (count == 0)
     }
 }
 
