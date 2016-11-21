@@ -84,8 +84,5 @@ var weatherTask: TaskState<Weather> {
 github "gokselkoksal/Lightning"
 ```
 
-## TODO
-- [ ] Support CocoaPods.
-
 ## License
 Lightning is available under the [MIT license](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt).
