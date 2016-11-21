@@ -39,6 +39,32 @@ list.write { items in
 }
 ```
 
+### Weak & WeakArray
+- `Weak` is a wrapper to reference an object weakly.
+- `WeakArray` is an `Array` that references its elements weakly. (Similar to `NSPointerArray`.)
+
+Following example shows how it can be used for request cancelling.
+
+```swift
+var liveRequests = WeakArray<URLSessionTask>()
+
+func viewDidLoad() {
+    super.viewDidLoad()
+    // Following async requests will be live until we get a response from server.
+    // Keep a weak reference to each to be able to cancel when necessary.
+    let offersRequest = viewModel.getOffers { ... }
+    liveRequests.appendWeak(offersRequest)
+    let favoritesRequest = viewModel.getFavorites { ... }
+    liveRequests.appendWeak(favoritesRequest)
+}
+
+func viewWillDisappear() {
+    super.viewWillDisappear()
+    liveRequests.elements.forEach { $0.cancel() }
+    liveRequests.removeAll()
+}
+```
+
 ### ActivityState
 Component to track live activities. Mostly used to show/hide loading view as in the following example.
 
