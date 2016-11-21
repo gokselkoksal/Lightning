@@ -17,6 +17,7 @@
 		6270EE921DE08E38009A5B29 /* Lightning.h in Headers */ = {isa = PBXBuildFile; fileRef = 6270EE841DE08E38009A5B29 /* Lightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6270EE9C1DE09305009A5B29 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9B1DE09305009A5B29 /* Result.swift */; };
 		6270EEA01DE0945B009A5B29 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9F1DE0945B009A5B29 /* ResultTests.swift */; };
+		627FC7471DE369B8001A02E6 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627FC7461DE369B8001A02E6 /* Protected.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		6270EE911DE08E38009A5B29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6270EE9B1DE09305009A5B29 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		6270EE9F1DE0945B009A5B29 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		627FC7461DE369B8001A02E6 /* Protected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protected.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				62348C7F1DE0C0490060D4FF /* ActivityState.swift */,
 				62348C831DE0C9250060D4FF /* CollectionChange.swift */,
 				62348C871DE0D00D0060D4FF /* TaskState.swift */,
+				627FC7461DE369B8001A02E6 /* Protected.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627FC7471DE369B8001A02E6 /* Protected.swift in Sources */,
 				6270EE9C1DE09305009A5B29 /* Result.swift in Sources */,
 				62348C841DE0C9250060D4FF /* CollectionChange.swift in Sources */,
 				62348C881DE0D00D0060D4FF /* TaskState.swift in Sources */,
