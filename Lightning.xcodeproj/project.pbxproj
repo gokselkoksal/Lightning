@@ -18,6 +18,7 @@
 		6270EE9C1DE09305009A5B29 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9B1DE09305009A5B29 /* Result.swift */; };
 		6270EEA01DE0945B009A5B29 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9F1DE0945B009A5B29 /* ResultTests.swift */; };
 		627FC7471DE369B8001A02E6 /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627FC7461DE369B8001A02E6 /* Protected.swift */; };
+		7DA112481DE373700053DC4E /* ProtectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA112471DE373700053DC4E /* ProtectedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		6270EE9B1DE09305009A5B29 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		6270EE9F1DE0945B009A5B29 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		627FC7461DE369B8001A02E6 /* Protected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protected.swift; sourceTree = "<group>"; };
+		7DA112471DE373700053DC4E /* ProtectedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */,
 				62348C851DE0C9CD0060D4FF /* CollectionChangeTests.swift */,
 				62348C891DE0D5880060D4FF /* TaskStateTests.swift */,
+				7DA112471DE373700053DC4E /* ProtectedTests.swift */,
 			);
 			path = LightningTests;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA112481DE373700053DC4E /* ProtectedTests.swift in Sources */,
 				62348C821DE0C1FF0060D4FF /* ActivityStateTests.swift in Sources */,
 				62348C861DE0C9CD0060D4FF /* CollectionChangeTests.swift in Sources */,
 				62348C8A1DE0D5880060D4FF /* TaskStateTests.swift in Sources */,
