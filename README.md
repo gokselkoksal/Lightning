@@ -17,10 +17,10 @@ Boxes result of a task with `success` and `failure` cases. Also defines `map` an
 Component to track live activities. Mostly used to show/hide loading view as in the following example.
 
 ```swift
-var loadingState = ActivityTracker() {
+var activityState = ActivityState() {
     didSet {
-        if loadingState.isToggled {
-            if loadingState.isActive {
+        if activityState.isToggled {
+            if activityState.isActive {
                 // Show loading view.
             } else {
                 // Hide loading view.
@@ -30,15 +30,15 @@ var loadingState = ActivityTracker() {
 }
 
 func someProcess() {
-    loadingState.add()
+    activityState.add()
     asyncCall1() {
         // ...
-        loadingState.add()
+        activityState.add()
         asyncCall2() {
             // ...
-            loadingState.remove()
+            activityState.remove()
         }
-        loadingState.remove()
+        activityState.remove()
     }
 }
 ```
