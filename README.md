@@ -16,6 +16,29 @@ public enum Result<Value> {
 ```
 Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
 
+### Protected
+`Protected` is a thread safe wrapper around values.
+```swift
+var list = Protected(["item1"])
+
+// Get value:
+let items = list.value
+
+// Set value:
+list.value = ["item1", "item2"]
+
+// Read block:
+list.read { items in
+    // Process...
+}
+
+// Write block:
+list.write { items in
+    // Process...
+    return updatedItems
+}
+```
+
 ### ActivityState
 Component to track live activities. Mostly used to show/hide loading view as in the following example.
 
