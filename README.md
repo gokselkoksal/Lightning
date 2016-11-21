@@ -19,12 +19,11 @@ Component to track live activities. Mostly used to show/hide loading view as in 
 ```swift
 var activityState = ActivityState() {
     didSet {
-        if activityState.isToggled {
-            if activityState.isActive {
-                // Show loading view.
-            } else {
-                // Hide loading view.
-            }
+        guard activityState.isToggled else { return }
+        if activityState.isActive {
+            // Show loading view.
+        } else {
+            // Hide loading view.
         }
     }
 }
