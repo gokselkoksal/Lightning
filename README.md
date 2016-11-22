@@ -5,6 +5,12 @@
 
 Lightning provides components to make Swift development easier.
 
+## Installation
+### Carthage
+```
+github "gokselkoksal/Lightning"
+```
+
 ## Components
 
 ### Result
@@ -125,12 +131,6 @@ var weatherTask: TaskState<Weather> {
         // Update weather widget. (Show/hide loading view, show error, show result etc.)
     }
 }
-```
-
-## Installation
-### Carthage
-```
-github "gokselkoksal/Lightning"
 ```
 
 ## License
