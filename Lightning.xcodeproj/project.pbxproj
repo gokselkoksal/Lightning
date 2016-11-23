@@ -52,6 +52,7 @@
 		6280AFC01DE3989300A5E4EC /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		6280AFC21DE3992E00A5E4EC /* WeakArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
 		6280AFC41DE3A14D00A5E4EC /* WeakTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTests.swift; sourceTree = "<group>"; };
+		7D571BBE1DE6DE4800815A89 /* Lightning.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Lightning.podspec; sourceTree = SOURCE_ROOT; };
 		7DA112471DE373700053DC4E /* ProtectedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +98,7 @@
 			children = (
 				6270EE841DE08E38009A5B29 /* Lightning.h */,
 				6270EE851DE08E38009A5B29 /* Info.plist */,
+				7D571BBD1DE6DE2C00815A89 /* CocoaPods */,
 				627FC7451DE3685C001A02E6 /* Sources */,
 			);
 			path = Lightning;
@@ -128,6 +130,14 @@
 				6280AFC21DE3992E00A5E4EC /* WeakArray.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		7D571BBD1DE6DE2C00815A89 /* CocoaPods */ = {
+			isa = PBXGroup;
+			children = (
+				7D571BBE1DE6DE4800815A89 /* Lightning.podspec */,
+			);
+			name = CocoaPods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
