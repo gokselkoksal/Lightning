@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode8.1
+xcode_scheme: Lightning
+xcode_sdk: iphonesimulator10.1
+cache: cocoapods
