@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6270EE801DE08E37009A5B29"
+               BlueprintIdentifier = "7D137C411DE72476000D9519"
                BuildableName = "Lightning.framework"
-               BlueprintName = "Lightning"
+               BlueprintName = "Lightning watchOS"
                ReferencedContainer = "container:Lightning.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6270EE891DE08E38009A5B29"
-               BuildableName = "LightningTests.xctest"
-               BlueprintName = "LightningTests"
-               ReferencedContainer = "container:Lightning.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6270EE801DE08E37009A5B29"
+            BlueprintIdentifier = "7D137C411DE72476000D9519"
             BuildableName = "Lightning.framework"
-            BlueprintName = "Lightning"
+            BlueprintName = "Lightning watchOS"
             ReferencedContainer = "container:Lightning.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +54,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6270EE801DE08E37009A5B29"
+            BlueprintIdentifier = "7D137C411DE72476000D9519"
             BuildableName = "Lightning.framework"
-            BlueprintName = "Lightning"
+            BlueprintName = "Lightning watchOS"
             ReferencedContainer = "container:Lightning.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +72,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6270EE801DE08E37009A5B29"
+            BlueprintIdentifier = "7D137C411DE72476000D9519"
             BuildableName = "Lightning.framework"
-            BlueprintName = "Lightning"
+            BlueprintName = "Lightning watchOS"
             ReferencedContainer = "container:Lightning.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
