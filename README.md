@@ -1,7 +1,10 @@
 # Lightning
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Lightning.svg?style=flat)](http://cocoapods.org/pods/Lightning)
+[![CI Status](http://img.shields.io/travis/gokselkoksal/Lightning.svg?style=flat)](https://travis-ci.org/gokselkoksal/Lightning)
 [![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt)
 
 Lightning provides components to make Swift development easier.
 
@@ -128,10 +131,23 @@ var weatherTask: TaskState<Weather> {
 ```
 
 ## Installation
-### Carthage
+
+### Using [CocoaPods](https://github.com/CocoaPods/CocoaPods)
+Add the following line to your `Podfile`:
+```
+pod 'Lightning'
+```
+
+### Using [Carthage](https://github.com/Carthage/Carthage)
+Add the following line to your `Cartfile`:
 ```
 github "gokselkoksal/Lightning"
 ```
+
+### Manually
+Drag and drop `Sources` folder to your project. 
+
+*It's highly recommended to use a dependency manager like `CocoaPods` or `Carthage`.*
 
 ## License
 Lightning is available under the [MIT license](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt).
