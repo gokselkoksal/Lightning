@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Lightning"
-  s.version      = "0.2.1"
+  s.version      = "0.2.2"
   s.summary      = "Lightning provides components to make Swift development easier."
   s.description  = <<-DESC
                     Lightning provides components to make Swift development easier. It
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.social_media_url = "https://twitter.com/gokselkk"
   
   s.ios.deployment_target     = "8.0"
-  s.osx.deployment_target     = "10.9"
+  s.osx.deployment_target     = "10.10"
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target    = "9.0"
 
