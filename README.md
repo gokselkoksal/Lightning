@@ -8,15 +8,6 @@
 
 Lightning provides components to make Swift development easier.
 
-## Installation
-Using [Carthage](https://github.com/Carthage/Carthage):
-```
-github "gokselkoksal/Lightning"
-```
-Using [CocoaPods](https://github.com/CocoaPods/CocoaPods):
-```
-pod 'Lightning'
-```
 ## Components
 
 ### Result
@@ -138,6 +129,25 @@ var weatherTask: TaskState<Weather> {
     }
 }
 ```
+
+## Installation
+
+### Using [CocoaPods](https://github.com/CocoaPods/CocoaPods)
+Add the following line to your `Podfile`:
+```
+pod 'Lightning'
+```
+
+### Using [Carthage](https://github.com/Carthage/Carthage)
+Add the following line to your `Cartfile`:
+```
+github "gokselkoksal/Lightning"
+```
+
+### Manually
+Drag and drop `Sources` folder to your project. 
+
+*It's highly recommended to use a dependency manager like `CocoaPods` or `Carthage`.*
 
 ## License
 Lightning is available under the [MIT license](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt).
