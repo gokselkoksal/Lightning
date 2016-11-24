@@ -6,11 +6,14 @@
 Lightning provides components to make Swift development easier.
 
 ## Installation
-### Carthage
+Using [Carthage](https://github.com/Carthage/Carthage):
 ```
 github "gokselkoksal/Lightning"
 ```
-
+Using [CocoaPods](https://github.com/CocoaPods/CocoaPods):
+```
+pod 'Lightning'
+```
 ## Components
 
 ### Result
