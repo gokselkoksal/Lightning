@@ -38,6 +38,42 @@ class CollectionChangeTests: XCTestCase {
         XCTAssert(indexes.contains(1))
     }
     
+    func testIndexPathConvertible() {
+        let indexPath = 2.asIndexPath()
+        XCTAssert(indexPath.count == 1)
+        XCTAssert(indexPath.first == indexPath.last)
+        if let first = indexPath.first {
+            XCTAssert(first == 2)
+        } else {
+            XCTFail("Index path is not constructed correctly.")
+        }
+    }
+    
+    func testIndexPathSetConvertible() {
+        let indexPath1 = IndexPath(index: 1)
+        let indexPath2 = IndexPath(index: 2)
+        let indexPath3 = IndexPath(index: 3)
+        
+        let convertible1 = 1.asIndexPath()
+        let convertible2 = 2.asIndexPath()
+        let convertible3 = 3.asIndexPath()
+        
+        XCTAssert(indexPath1 == convertible1)
+        XCTAssert(indexPath2 == convertible2)
+        XCTAssert(indexPath3 == convertible3)
+        
+        var indexSet = IndexSet()
+        indexSet.insert(1)
+        indexSet.insert(2)
+        indexSet.insert(3)
+        
+        let indexPathSet = indexSet.asIndexPathSet()
+        XCTAssert(indexPathSet.count == 3)
+        XCTAssert(indexPathSet.contains(indexPath1))
+        XCTAssert(indexPathSet.contains(indexPath2))
+        XCTAssert(indexPathSet.contains(indexPath3))
+    }
+    
     func testReload() {
         XCTAssert(reload1 == reload2)
         XCTAssert(reload1 != insertion1)
