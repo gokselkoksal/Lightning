@@ -101,13 +101,20 @@ func someProcess() {
 ```swift
 public enum CollectionChange {
     case reload
-    case update(IndexSetConvertible)
-    case insertion(IndexSetConvertible)
-    case deletion(IndexSetConvertible)
-    case move(from: Int, to: Int)
+    case update(IndexPathSetConvertible)
+    case insertion(IndexPathSetConvertible)
+    case deletion(IndexPathSetConvertible)
+    case move(from: IndexPathConvertible, to: IndexPathConvertible)
 }
 ```
 Enum to encapsulate change in any collection. Can be used to model `UITableView`/`UICollectionView` or any `CollectionType` changes.
+
+```swift
+func addCustomer(_ customer: Customer) -> CollectionChange {
+    customers.insert(customer, at: 0)
+    return .insertion(0)
+}
+```
 
 ### TaskState
 ```swift
