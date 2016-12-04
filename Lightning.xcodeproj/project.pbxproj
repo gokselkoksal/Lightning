@@ -227,6 +227,15 @@
 		627FC7451DE3685C001A02E6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				62D921091DF435AE002F0381 /* Components */,
+				62D9210A1DF435B3002F0381 /* Extensions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		62D921091DF435AE002F0381 /* Components */ = {
+			isa = PBXGroup;
+			children = (
 				6270EE9B1DE09305009A5B29 /* Result.swift */,
 				62348C7F1DE0C0490060D4FF /* ActivityState.swift */,
 				62348C831DE0C9250060D4FF /* CollectionChange.swift */,
@@ -235,7 +244,14 @@
 				6280AFC01DE3989300A5E4EC /* Weak.swift */,
 				6280AFC21DE3992E00A5E4EC /* WeakArray.swift */,
 			);
-			path = Sources;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		62D9210A1DF435B3002F0381 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		62E967561DE75589009ACCE7 /* Metadata */ = {
