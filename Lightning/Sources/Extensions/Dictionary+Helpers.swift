@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
-    static func +(left: [Key: Value], right: [Key: Value]) -> [Key: Value] {
+    public static func +(left: [Key: Value], right: [Key: Value]) -> [Key: Value] {
         var result = left
         for pair in right {
             result[pair.key] = pair.value
@@ -18,7 +18,7 @@ extension Dictionary {
         return result
     }
     
-    static func +=(left: inout [Key: Value], right: [Key: Value]) {
+    public static func +=(left: inout [Key: Value], right: [Key: Value]) {
         for pair in right {
             left[pair.key] = pair.value
         }

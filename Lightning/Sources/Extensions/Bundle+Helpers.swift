@@ -8,17 +8,17 @@
 
 import Foundation
 
-extension Bundle {
+public extension Bundle {
     
-    var zap_shortVersionString: String {
+    public var zap_shortVersionString: String {
         return object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     }
     
-    var zap_buildNumberString: String {
+    public var zap_buildNumberString: String {
         return object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
     }
     
-    var zap_longVersionString: String {
+    public var zap_longVersionString: String {
         return "\(zap_shortVersionString) (\(zap_buildNumberString))"
     }
 }
