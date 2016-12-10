@@ -16,6 +16,9 @@
 		624B401F1DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B401E1DFC6E4400E98A64 /* DictionaryHelpersTests.swift */; };
 		624B40201DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B401E1DFC6E4400E98A64 /* DictionaryHelpersTests.swift */; };
 		624B40211DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B401E1DFC6E4400E98A64 /* DictionaryHelpersTests.swift */; };
+		624B40231DFC735700E98A64 /* BundleHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B40221DFC735700E98A64 /* BundleHelpersTests.swift */; };
+		624B40241DFC735700E98A64 /* BundleHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B40221DFC735700E98A64 /* BundleHelpersTests.swift */; };
+		624B40251DFC735700E98A64 /* BundleHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B40221DFC735700E98A64 /* BundleHelpersTests.swift */; };
 		6270EE8B1DE08E38009A5B29 /* Lightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6270EE811DE08E38009A5B29 /* Lightning.framework */; };
 		6270EE921DE08E38009A5B29 /* Lightning.h in Headers */ = {isa = PBXBuildFile; fileRef = 6270EE841DE08E38009A5B29 /* Lightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6270EE9C1DE09305009A5B29 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270EE9B1DE09305009A5B29 /* Result.swift */; };
@@ -112,6 +115,7 @@
 		62348C871DE0D00D0060D4FF /* TaskState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskState.swift; sourceTree = "<group>"; };
 		62348C891DE0D5880060D4FF /* TaskStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStateTests.swift; sourceTree = "<group>"; };
 		624B401E1DFC6E4400E98A64 /* DictionaryHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryHelpersTests.swift; sourceTree = "<group>"; };
+		624B40221DFC735700E98A64 /* BundleHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleHelpersTests.swift; sourceTree = "<group>"; };
 		6270EE811DE08E38009A5B29 /* Lightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6270EE841DE08E38009A5B29 /* Lightning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lightning.h; sourceTree = "<group>"; };
 		6270EE851DE08E38009A5B29 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				624B401E1DFC6E4400E98A64 /* DictionaryHelpersTests.swift */,
+				624B40221DFC735700E98A64 /* BundleHelpersTests.swift */,
 			);
 			path = ExtensionTests;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6276BAA01DFA0D260022790E /* TimerControllerTests.swift in Sources */,
+				624B40231DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
 				7DA112481DE373700053DC4E /* ProtectedTests.swift in Sources */,
 				6280AFC51DE3A14D00A5E4EC /* WeakTests.swift in Sources */,
 				624B401F1DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */,
@@ -700,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6276BAA11DFA0D260022790E /* TimerControllerTests.swift in Sources */,
+				624B40241DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
 				7D14F5EE1DE7420E003B1F37 /* ProtectedTests.swift in Sources */,
 				7D14F5EF1DE7420E003B1F37 /* WeakTests.swift in Sources */,
 				624B40201DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */,
@@ -715,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6276BAA21DFA0D260022790E /* TimerControllerTests.swift in Sources */,
+				624B40251DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
 				7D14F5F41DE7420F003B1F37 /* ProtectedTests.swift in Sources */,
 				7D14F5F51DE7420F003B1F37 /* WeakTests.swift in Sources */,
 				624B40211DFC6E4400E98A64 /* DictionaryHelpersTests.swift in Sources */,
