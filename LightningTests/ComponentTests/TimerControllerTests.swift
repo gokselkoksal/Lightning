@@ -11,10 +11,14 @@ import XCTest
 
 class TimerControllerTests: XCTestCase {
     
+    private let total = 0.2
+    private let interval = 0.1
+    private let timeout = 0.3
+    
     func testStartTimer() {
         let exp = expectation(description: "timer")
-        var remaining = 2.0
-        let timerController = TimerController(total: remaining) { state in
+        var remaining = total
+        let timerController = TimerController(total: remaining, interval: interval) { state in
             remaining -= state.interval
             XCTAssert(state.remaining == remaining)
             XCTAssert(state.isTicking == true)
@@ -23,7 +27,7 @@ class TimerControllerTests: XCTestCase {
             }
         }
         timerController.startTimer()
-        waitForExpectations(timeout: remaining + 0.1) { error in
+        waitForExpectations(timeout: timeout) { error in
             if let error = error {
                 XCTFail("TimerController timed out. \(error)")
             } else {
@@ -34,10 +38,9 @@ class TimerControllerTests: XCTestCase {
     
     func testStopTimer() {
         let exp = expectation(description: "timer")
-        let total = 2.0
-        let timerController = TimerController(total: total)
+        let timerController = TimerController(total: total, interval: interval)
         timerController.tickHandler = { state in
-            XCTAssert(state.remaining == 1.0)
+            XCTAssert(state.remaining == 0.1)
             XCTAssert(state.isTicking == true)
             XCTAssert(state.isFinished == false)
             timerController.stopTimer()
@@ -45,7 +48,7 @@ class TimerControllerTests: XCTestCase {
             exp.fulfill()
         }
         timerController.startTimer()
-        waitForExpectations(timeout: total + 0.1) { error in
+        waitForExpectations(timeout: timeout) { error in
             if let error = error {
                 XCTFail("TimerController timed out. \(error)")
             } else {
