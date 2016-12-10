@@ -196,6 +196,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624B401C1DFC6DA600E98A64 /* ComponentTests */ = {
+			isa = PBXGroup;
+			children = (
+				6270EE9F1DE0945B009A5B29 /* ResultTests.swift */,
+				62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */,
+				62348C851DE0C9CD0060D4FF /* CollectionChangeTests.swift */,
+				62348C891DE0D5880060D4FF /* TaskStateTests.swift */,
+				7DA112471DE373700053DC4E /* ProtectedTests.swift */,
+				6280AFC41DE3A14D00A5E4EC /* WeakTests.swift */,
+				6276BA9F1DFA0D260022790E /* TimerControllerTests.swift */,
+			);
+			path = ComponentTests;
+			sourceTree = "<group>";
+		};
+		624B401D1DFC6DEB00E98A64 /* ExtensionTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExtensionTests;
+			sourceTree = "<group>";
+		};
 		6270EE771DE08E37009A5B29 = {
 			isa = PBXGroup;
 			children = (
@@ -233,13 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				7D14F5F61DE7421D003B1F37 /* Supporting Files */,
-				6270EE9F1DE0945B009A5B29 /* ResultTests.swift */,
-				62348C811DE0C1FF0060D4FF /* ActivityStateTests.swift */,
-				62348C851DE0C9CD0060D4FF /* CollectionChangeTests.swift */,
-				62348C891DE0D5880060D4FF /* TaskStateTests.swift */,
-				7DA112471DE373700053DC4E /* ProtectedTests.swift */,
-				6280AFC41DE3A14D00A5E4EC /* WeakTests.swift */,
-				6276BA9F1DFA0D260022790E /* TimerControllerTests.swift */,
+				624B401C1DFC6DA600E98A64 /* ComponentTests */,
+				624B401D1DFC6DEB00E98A64 /* ExtensionTests */,
 			);
 			path = LightningTests;
 			sourceTree = "<group>";
