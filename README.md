@@ -43,6 +43,14 @@ list.write { items in
 }
 ```
 
+### TimerController
+`TimerController` is a wrapper around `Timer`, which makes it easy to implement countdowns.
+```swift
+let timerController = TimerController(total: 60.0) { state in
+    timerLabel.text = "\(state.remaining) seconds remaining..."
+}
+```
+
 ### Weak & WeakArray
 - `Weak` is a wrapper to reference an object weakly.
 - `WeakArray` is an `Array` that references its elements weakly. (Similar to `NSPointerArray`.)
@@ -101,13 +109,20 @@ func someProcess() {
 ```swift
 public enum CollectionChange {
     case reload
-    case update(IndexSetConvertible)
-    case insertion(IndexSetConvertible)
-    case deletion(IndexSetConvertible)
-    case move(from: Int, to: Int)
+    case update(IndexPathSetConvertible)
+    case insertion(IndexPathSetConvertible)
+    case deletion(IndexPathSetConvertible)
+    case move(from: IndexPathConvertible, to: IndexPathConvertible)
 }
 ```
 Enum to encapsulate change in any collection. Can be used to model `UITableView`/`UICollectionView` or any `CollectionType` changes.
+
+```swift
+func addCustomer(_ customer: Customer) -> CollectionChange {
+    customers.insert(customer, at: 0)
+    return .insertion(0)
+}
+```
 
 ### TaskState
 ```swift
@@ -129,6 +144,27 @@ var weatherTask: TaskState<Weather> {
         // Update weather widget. (Show/hide loading view, show error, show result etc.)
     }
 }
+```
+
+## Extensions
+Lightning provides extensions on known types with `zap` :zap: prefix.
+
+### Dictionary+Helpers
+Introduces `+` and `+=` operators.
+```swift
+let dict1 = ["k1": "v1", "k2": "v2"]
+let dict2 = ["k3": "v3"]
+var dict3 = dict1 + dict2 // [(k1: v1), (k2: v2), (k3: v3)]
+dict3 += ["k4": "v4"]     // [(k1: v1), (k2: v2), (k3: v3), (k4: v4)]
+dict3 += ["k4": "xx"]     // [(k1: v1), (k2: v2), (k3: v3), (k4: xx)]
+```
+
+### Bundle+Helpers
+Provides version string helpers.
+```swift
+bundle.zap_shortVersionString // 1.2.1
+bundle.zap_buildNumberString  // 345
+bundle.zap_longVersionString  // 1.2.1 (345)
 ```
 
 ## Installation
