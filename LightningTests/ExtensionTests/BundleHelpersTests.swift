@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Lightning
 
 class BundleHelpersTests: XCTestCase {
     
