@@ -174,6 +174,27 @@ var weatherTask: TaskState<Weather> {
 ## Extensions
 Lightning provides extensions on known types with `zap` :zap: prefix.
 
+### String+Helpers
+```swift
+let string = "Welcome"
+
+// Int -> String.Index conversion:
+let index1 = string.zap_index(1)
+let eChar = string[index1] // "e"
+let eChar = string.zap_character(at: 1) // "e"
+
+// NSRange -> Range<String.Index> conversion:
+let nsRange = NSRange(location: 0, length: 3)
+let substring = string.zap_substring(with: nsRange) // "Wel"
+let stringRange = string.zap_range(from: nsRange)
+let substring = string.substring(with: stringRange) // "Wel"
+
+// Range validation for NSRange -> Range<String.Index>:
+let shortString = "Go"
+let intersectedRange = shortString.zap_rangeIntersection(with: nsRange)
+// `nsRange` [0, 2] is out of bounds for "Go". Intersection is [0, 1].
+```
+
 ### Dictionary+Helpers
 Introduces `+` and `+=` operators.
 ```swift
