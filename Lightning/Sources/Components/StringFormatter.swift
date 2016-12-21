@@ -8,17 +8,17 @@
 
 import Foundation
 
-class StringFormatter: Formatter {
+public class StringFormatter: Formatter {
     
-    let pattern: String
-    let valueCharacter: Character
+    public let pattern: String
+    public let valueCharacter: Character
     
-    init(pattern: String, valueCharacter: Character = "#") {
+    public init(pattern: String, valueCharacter: Character = "#") {
         self.pattern = pattern
         self.valueCharacter = valueCharacter
     }
     
-    func format(_ value: String) -> String {
+    public func format(_ value: String) -> String {
         var result = ""
         var index = value.startIndex
         var numberOfChars = 0
@@ -41,7 +41,7 @@ class StringFormatter: Formatter {
         return result
     }
     
-    func unformat(_ value: String) -> String {
+    public func unformat(_ value: String) -> String {
         var index = pattern.startIndex
         var result = ""
         var numberOfChars = 0
@@ -66,7 +66,7 @@ class StringFormatter: Formatter {
         return result
     }
     
-    func isFormatted(_ value: String) -> Bool {
+    public func isFormatted(_ value: String) -> Bool {
         guard value.characters.count > 0 else { return false }
         var index = pattern.startIndex
         for charInPattern in pattern.characters {

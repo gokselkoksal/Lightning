@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Formatter {
+public protocol Formatter {
     associatedtype Value
     func format(_ value: Value) -> Value
     func unformat(_ value: Value) -> Value

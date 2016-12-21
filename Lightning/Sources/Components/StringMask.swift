@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct StringMask {
+public class StringMask {
     
-    let ranges: [NSRange]
-    let character: Character
+    public let ranges: [NSRange]
+    public let character: Character
     
-    init(ranges: [NSRange], character: Character = "*") {
+    public init(ranges: [NSRange], character: Character = "*") {
         self.ranges = ranges
         self.character = character
     }
     
-    func mask(_ string: String) -> String {
+    public func mask(_ string: String) -> String {
         guard string.characters.count > 0 else { return string }
         let stringRanges = ranges.flatMap { string.zap_rangeIntersection(with: $0) }
         func shouldMaskIndex(_ index: String.Index) -> Bool {
@@ -39,23 +39,23 @@ struct StringMask {
     }
 }
 
-struct StringMaskStorage {
+public struct StringMaskStorage {
     
-    var mask: StringMask {
+    public var mask: StringMask {
         didSet {
             update()
         }
     }
     
-    var original: String? {
+    public var original: String? {
         didSet {
             update()
         }
     }
     
-    private(set) var masked: String?
+    public private(set) var masked: String?
     
-    init(mask: StringMask) {
+    public init(mask: StringMask) {
         self.mask = mask
     }
     
