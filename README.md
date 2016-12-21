@@ -20,6 +20,31 @@ public enum Result<Value> {
 ```
 Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
 
+### StringFormatter & StringMask
+Component to format and mask strings with pre-defined patterns.
+
+- Format phone number:
+```swift
+// Perform 05308808080 -> 0 (530) 880 80 80
+
+let phoneFormatter = StringFormatter(pattern: "# (###) ### ## ##")
+let formattedNumber = phoneFormatter.format("05308808080") // Returns "0 (530) 880 80 80"
+```
+- Mask & format card number:
+```swift
+// Perform 1111222233334444 -> **** **** 3333 4444
+
+let cardFormatter = StringFormatter("#### #### #### ####")
+let cardMask = StringMask(ranges: [NSRange(location: 0, length: 8)])
+let cardMaskStorage = StringMaskStorage(mask: mask)
+
+let cardNo = cardNoLabel.text // Equals to "1111222233334444"
+cardMaskStorage.original = cardNo
+let maskedCardNo = cardMaskStorage.masked // Equals to "********33334444"
+let formattedCardNo = cardFormatter.format(maskedCardNo)
+cardNoLabel.text = formattedCardNo // Equals to "**** **** 3333 4444"
+```
+
 ### Protected
 `Protected` is a thread safe wrapper around values.
 ```swift
