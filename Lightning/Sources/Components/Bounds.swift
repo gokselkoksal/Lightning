@@ -43,8 +43,23 @@ public struct Bounds<T: Comparable> {
     }
     
     public func contains(_ value: T) -> Bool {
-        let lowerOK = lower.isInclusive ? value >= lower.value : value > lower.value
-        let upperOK = upper.isInclusive ? value <= upper.value : value < upper.value
+        let lowerOK: Bool
+        let upperOK: Bool
+        
+        switch lower {
+        case .inclusive(let bound):
+            lowerOK = value >= bound
+        case .exclusive(let bound):
+            lowerOK = value > bound
+        }
+        
+        switch upper {
+        case .inclusive(let bound):
+            upperOK = value <= bound
+        case .exclusive(let bound):
+            upperOK = value < bound
+        }
+        
         return lowerOK && upperOK
     }
 }
