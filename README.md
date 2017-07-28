@@ -171,6 +171,20 @@ var weatherTask: TaskState<Weather> {
 }
 ```
 
+### Bounds
+
+```swift
+let bounds = Bounds(.inclusive(2), .exclusive(5))
+// A successful test:
+XCTAssertFalse(bounds.contains(0))
+XCTAssertFalse(bounds.contains(1))
+XCTAssertTrue(bounds.contains(2))
+XCTAssertTrue(bounds.contains(3))
+XCTAssertTrue(bounds.contains(4))
+XCTAssertFalse(bounds.contains(5))
+XCTAssertFalse(bounds.contains(6))
+```
+
 ## Extensions
 Lightning provides extensions on known types with `zap` :zap: prefix.
 
@@ -208,9 +222,11 @@ dict3 += ["k4": "xx"]     // [(k1: v1), (k2: v2), (k3: v3), (k4: xx)]
 ### Bundle+Helpers
 Provides version string helpers.
 ```swift
+// Version field:
 bundle.zap_shortVersionString // 1.2.1
-bundle.zap_buildNumberString  // 345
-bundle.zap_longVersionString  // 1.2.1 (345)
+
+// Build field:
+bundle.zap_versionString      // 345
 ```
 
 ## Installation
