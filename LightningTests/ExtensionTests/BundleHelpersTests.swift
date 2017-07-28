@@ -14,10 +14,8 @@ class BundleHelpersTests: XCTestCase {
     func testVersionStrings() {
         let bundle = Bundle(for: BundleHelpersTests.self)
         let shortVersion = bundle.zap_shortVersionString
-        let buildVersion = bundle.zap_buildNumberString
-        let longVersion = bundle.zap_longVersionString
+        let buildVersion = bundle.zap_versionString
         XCTAssert(shortVersion == "1.0")
         XCTAssert(buildVersion == "1")
-        XCTAssert(longVersion == "\(shortVersion) (\(buildVersion))")
     }
 }
