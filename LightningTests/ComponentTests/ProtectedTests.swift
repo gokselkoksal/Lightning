@@ -23,7 +23,10 @@ class ProtectedTests: XCTestCase {
             var items = items
             items.append("item3")
             items.append("item4")
-            items = items.map { $0.substring(from: $0.index($0.startIndex, offsetBy: 4)) }
+            items = items.map { string in
+                let index = string.index(string.startIndex, offsetBy: 4)
+                return String(string[index..<string.endIndex])
+            }
             return items
         }
         XCTAssert(list.value == ["1", "2", "3", "4"])

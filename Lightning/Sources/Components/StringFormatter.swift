@@ -22,7 +22,7 @@ public class StringFormatter: Formatter {
         var result = ""
         var index = value.startIndex
         var numberOfChars = 0
-        for char in pattern.characters {
+        for char in pattern {
             if index == value.endIndex {
                 break
             }
@@ -34,9 +34,9 @@ public class StringFormatter: Formatter {
                 result += String(char)
             }
         }
-        if numberOfChars < value.characters.count {
+        if numberOfChars < value.count {
             // Add leftover characters to the end:
-            result += value.substring(from: index)
+            result += value[index..<value.endIndex]
         }
         return result
     }
@@ -45,7 +45,7 @@ public class StringFormatter: Formatter {
         var index = pattern.startIndex
         var result = ""
         var numberOfChars = 0
-        for charInPattern in pattern.characters {
+        for charInPattern in pattern {
             if index == value.endIndex {
                 break
             }
@@ -59,17 +59,17 @@ public class StringFormatter: Formatter {
             }
             index = pattern.index(after: index)
         }
-        if numberOfChars < value.characters.count {
+        if numberOfChars < value.count {
             // Add leftover characters to the end:
-            result += value.substring(from: index)
+            result += value[index..<value.endIndex]
         }
         return result
     }
     
     public func isFormatted(_ value: String) -> Bool {
-        guard value.characters.count > 0 else { return false }
+        guard value.count > 0 else { return false }
         var index = pattern.startIndex
-        for charInPattern in pattern.characters {
+        for charInPattern in pattern {
             if index == value.endIndex {
                 break
             }
