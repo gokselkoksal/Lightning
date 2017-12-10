@@ -64,3 +64,7 @@ public extension Result {
         }
     }
 }
+
+public extension Result where Value == Void {
+    static var success: Result<Void> = Result<Void>.success(())
+}
