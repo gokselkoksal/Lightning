@@ -19,7 +19,7 @@ public class StringMask {
     }
     
     public func mask(_ string: String) -> String {
-        guard string.characters.count > 0 else { return string }
+        guard string.count > 0 else { return string }
         let stringRanges = ranges.flatMap { string.zap_rangeIntersection(with: $0) }
         func shouldMaskIndex(_ index: String.Index) -> Bool {
             for range in stringRanges {
@@ -31,7 +31,7 @@ public class StringMask {
         }
         var result = ""
         var index = string.startIndex
-        for char in string.characters {
+        for char in string {
             result += String(shouldMaskIndex(index) ? character : char)
             index = string.index(after: index)
         }

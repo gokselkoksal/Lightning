@@ -29,11 +29,11 @@ class StringHelpersTests: XCTestCase {
         XCTAssert(string.zap_substring(with: nsRange) == "Go")
         
         let range = string.zap_range(from: nsRange)
-        XCTAssert(string.substring(with: range) == "Go")
+        XCTAssert(string[range] == "Go")
         
         let rangeIntersection = string.zap_rangeIntersection(with: NSRange(location: 5, length: 4))
         if let rangeIntersection = rangeIntersection {
-            XCTAssert(string.substring(with: rangeIntersection) == "l")
+            XCTAssert(string[rangeIntersection] == "l")
         } else {
             XCTFail("StringHelpers: Range intersection should not be nil.")
         }

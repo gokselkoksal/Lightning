@@ -21,11 +21,11 @@ public extension String {
     }
     
     public func zap_rangeIntersection(with range: NSRange) -> Range<String.Index>? {
-        guard range.location < characters.count else { return nil }
+        guard range.location < count else { return nil }
         let proposedEnd = range.location + range.length - 1
-        let isOutOfBounds = proposedEnd >= characters.count
+        let isOutOfBounds = proposedEnd >= count
         let start = range.location
-        let end = isOutOfBounds ? characters.count - 1 : proposedEnd
+        let end = isOutOfBounds ? count - 1 : proposedEnd
         let range = NSRange(location: start, length: end - start + 1)
         return zap_range(from: range)
     }
@@ -36,6 +36,6 @@ public extension String {
     
     public func zap_substring(with range: NSRange) -> String {
         let range = zap_range(from: range)
-        return substring(with: range)
+        return String(self[range])
     }
 }
