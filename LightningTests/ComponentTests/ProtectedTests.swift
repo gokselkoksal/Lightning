@@ -12,7 +12,7 @@ import XCTest
 class ProtectedTests: XCTestCase {
     
     func testReadWrite() {
-        var list = Protected(["item1"])
+        let list = Protected(["item1"])
         XCTAssert(list.value == ["item1"])
         list.value = ["item1", "item2"]
         XCTAssert(list.value == ["item1", "item2"])

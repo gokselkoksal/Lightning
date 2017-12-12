@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Protected<Value> {
+class Protected<Value> {
     
-    private var queue = DispatchQueue(label: "me.gk.Lightning.Protected")
+    private var queue = DispatchQueue(label: "me.gk.Lightning.Protected", attributes: .concurrent)
     private var _value: Value
     
     var value: Value {
@@ -22,8 +22,8 @@ struct Protected<Value> {
             return safeValue!
         }
         set {
-            queue.sync {
-                _value = newValue
+            queue.async(flags: .barrier) { [weak self] in
+                self?._value = newValue
             }
         }
     }
@@ -32,11 +32,16 @@ struct Protected<Value> {
         _value = value
     }
     
-    mutating func read(_ block: (Value) -> Void) {
-        block(value)
+    func read(_ block: (Value) -> Void) {
+        queue.sync {
+            block(_value)
+        }
     }
     
-    mutating func write(_ block: (Value) -> Value) {
-        value = block(value)
+    func write(_ block: @escaping (Value) -> Value) {
+        queue.async(flags: .barrier) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf._value = block(strongSelf._value)
+        }
     }
 }
