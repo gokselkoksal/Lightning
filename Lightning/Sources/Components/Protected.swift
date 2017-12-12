@@ -38,10 +38,10 @@ public class Protected<Value> {
         }
     }
     
-    public func write(_ block: @escaping (Value) -> Value) {
+    public func write(_ block: @escaping (inout Value) -> Void) {
         queue.async(flags: .barrier) { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf._value = block(strongSelf._value)
+            block(&strongSelf._value)
         }
     }
 }
