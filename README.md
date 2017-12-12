@@ -58,13 +58,12 @@ list.value = ["item1", "item2"]
 
 // Read block:
 list.read { items in
-    // Process...
+    print(items)
 }
 
 // Write block:
 list.write { items in
-    // Process...
-    return updatedItems
+    items.append(...)
 }
 ```
 
