@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Lightning"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Lightning provides components to make Swift development easier."
   s.description  = <<-DESC
                     Lightning provides components to make Swift development easier. It
