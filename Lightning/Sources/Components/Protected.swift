@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Protected<Value> {
+public class Protected<Value> {
     
     private var queue = DispatchQueue(label: "me.gk.Lightning.Protected", attributes: .concurrent)
     private var _value: Value
     
-    var value: Value {
+    public var value: Value {
         get {
             var safeValue: Value?
             queue.sync {
@@ -28,17 +28,17 @@ class Protected<Value> {
         }
     }
     
-    init(_ value: Value) {
+    public init(_ value: Value) {
         _value = value
     }
     
-    func read(_ block: (Value) -> Void) {
+    public func read(_ block: (Value) -> Void) {
         queue.sync {
             block(_value)
         }
     }
     
-    func write(_ block: @escaping (Value) -> Value) {
+    public func write(_ block: @escaping (Value) -> Value) {
         queue.async(flags: .barrier) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf._value = block(strongSelf._value)
