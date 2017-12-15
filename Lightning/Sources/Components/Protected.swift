@@ -15,11 +15,7 @@ public class Protected<Value> {
     
     public var value: Value {
         get {
-            var safeValue: Value?
-            queue.sync {
-                safeValue = _value
-            }
-            return safeValue!
+            return queue.sync { _value }
         }
         set {
             queue.async(flags: .barrier) { [weak self] in
