@@ -618,6 +618,7 @@
 					};
 					7D137C341DE72417000D9519 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 					};
 					7D137C411DE72476000D9519 = {
 						CreatedOnToolsVersion = 8.1;
@@ -629,6 +630,7 @@
 					};
 					7D14F5CF1DE74129003B1F37 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					7D14F5DE1DE7413E003B1F37 = {
@@ -1104,7 +1106,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1124,7 +1126,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1215,7 +1217,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1228,7 +1230,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
