@@ -4,7 +4,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/Lightning.svg?style=flat)](http://cocoapods.org/pods/Lightning)
 [![CI Status](http://img.shields.io/travis/gokselkoksal/Lightning.svg?style=flat)](https://travis-ci.org/gokselkoksal/Lightning)
 [![Platform](https://img.shields.io/cocoapods/p/Lightning.svg?style=flat)](http://cocoadocs.org/docsets/Lightning)
-[![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-4.0-orange.svg)](http://swift.org)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt)
 
 Lightning provides components to make Swift development easier.
@@ -86,13 +86,12 @@ list.value = ["item1", "item2"]
 
 // Read block:
 list.read { items in
-    // Process...
+    print(items)
 }
 
 // Write block:
 list.write { items in
-    // Process...
-    return updatedItems
+    items.append(...)
 }
 ```
 
