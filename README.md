@@ -20,6 +20,34 @@ public enum Result<Value> {
 ```
 Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
 
+### Channel
+
+A simple event bus implementation for Swift. See this article for more: [Using Channels for Data Flow in Swift](https://medium.com/@gokselkoksal/using-channels-for-data-flow-in-swift-14bbdf27b471)
+
+```swift
+enum Message {
+  case didUpdateTheme(Theme)
+}
+
+let settingsChannel = Channel<Message>()
+
+class SomeView {
+
+  func load() {
+    settingsChannel.subscribe(self) { message in
+      // React to the message here.
+    }
+  }
+}
+
+let view = SomeView()
+view.load()
+
+settingsChannel.broadcast(.didUpdateTheme(.light))
+```
+
+See [this gist](https://gist.github.com/gokselkoksal/4ab590f24305e072a547af46d81c056e) for a real-life example.
+
 ### StringFormatter & StringMask
 Component to format and mask strings with pre-defined patterns.
 
