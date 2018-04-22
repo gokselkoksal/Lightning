@@ -14,65 +14,54 @@ public class Channel<Value> {
     internal class Subscription {
         
         weak var object: AnyObject?
-        private let notifyBlock: (Value) -> Void
-        private let queue: DispatchQueue
+        private let queue: DispatchQueue?
+        private let block: (Value) -> Void
         
         var isValid: Bool {
             return object != nil
         }
         
-        init(object: AnyObject?, queue: DispatchQueue, notifyBlock: @escaping (Value) -> Void) {
+        init(object: AnyObject?, queue: DispatchQueue?, block: @escaping (Value) -> Void) {
             self.object = object
             self.queue = queue
-            self.notifyBlock = notifyBlock
+            self.block = block
         }
         
-        func notify(_ value: Value, completion: (() -> Void)? = nil) {
-            queue.async { [weak self] in
-                guard let strongSelf = self else { return }
-                
-                if strongSelf.isValid {
-                    strongSelf.notifyBlock(value)
+        func notify(_ value: Value) {
+            if let queue = queue {
+                queue.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    
+                    if strongSelf.isValid {
+                        strongSelf.block(value)
+                    }
                 }
-                
-                completion?()
+            } else {
+                if isValid {
+                    block(value)
+                }
             }
         }
     }
     
     internal var subscriptions: Protected<[Subscription]> = Protected([])
-    private let queue: DispatchQueue
     
     /// Creates a channel instance.
-    ///
-    /// - Parameter defaultBroadcastQueue: Default queue to use while notifying subscriptions.
-    public init(defaultBroadcastQueue: DispatchQueue = .main) {
-        self.queue = defaultBroadcastQueue
-    }
-    
-    /// Subscribes given object to the channel. (Notifies on `defaultBroadcastQueue`.)
-    ///
-    /// - Parameters:
-    ///   - object: Object to subscribe.
-    ///   - notifyBlock: Block to call for notification.
-    public func subscribe(_ object: AnyObject?, notifyBlock: @escaping (Value) -> Void) {
-        self.subscribe(object, queue: self.queue, notifyBlock: notifyBlock)
-    }
+    public init() { }
     
     /// Subscribes given object to channel.
     ///
     /// - Parameters:
     ///   - object: Object to subscribe.
-    ///   - queue: Queue to notify on.
-    ///   - notifyBlock: Block to call for notification.
-    public func subscribe(_ object: AnyObject?, queue: DispatchQueue, notifyBlock: @escaping (Value) -> Void) {
-        let subscription = Subscription(object: object, queue: queue, notifyBlock: notifyBlock)
+    ///   - queue: Queue for given block to be called in. If you pass nil, the block is run synchronously on the posting thread.
+    ///   - block: Block to call upon broadcast.
+    public func subscribe(_ object: AnyObject?, queue: DispatchQueue? = nil, block: @escaping (Value) -> Void) {
+        let subscription = Subscription(object: object, queue: queue, block: block)
         
         subscriptions.write { list in
             list.append(subscription)
         }
     }
-    
     
     /// Unsubscribes given object from channel.
     ///
@@ -90,25 +79,10 @@ public class Channel<Value> {
     /// - Parameters:
     ///   - value: Value to broadcast.
     ///   - completion: Completion handler called after notifing all subscribers.
-    public func broadcast(_ value: Value, completion: (() -> Void)? = nil) {
-        subscriptions.write { [weak self] list in
-            guard let strongSelf = self else { return }
-            
+    public func broadcast(_ value: Value) {
+        subscriptions.write(mode: .sync) { list in
             list = list.filter({ $0.isValid })
-            
-            let group = DispatchGroup()
-            
-            for subscriber in list {
-                group.enter()
-                subscriber.notify(value) {
-                    group.leave()
-                }
-            }
-            
-            group.wait()
-            group.notify(queue: strongSelf.queue) {
-                completion?()
-            }
+            list.forEach({ $0.notify(value) })
         }
     }
 }
