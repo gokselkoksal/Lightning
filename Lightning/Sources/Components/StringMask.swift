@@ -20,7 +20,7 @@ public class StringMask {
     
     public func mask(_ string: String) -> String {
         guard string.count > 0 else { return string }
-        let stringRanges = ranges.flatMap { string.zap_rangeIntersection(with: $0) }
+        let stringRanges = ranges.compactMap { string.zap_rangeIntersection(with: $0) }
         func shouldMaskIndex(_ index: String.Index) -> Bool {
             for range in stringRanges {
                 if range.contains(index) {

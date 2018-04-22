@@ -622,10 +622,12 @@
 					};
 					7D137C411DE72476000D9519 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					7D137C4E1DE724DC000D9519 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					7D14F5CF1DE74129003B1F37 = {
@@ -635,6 +637,7 @@
 					};
 					7D14F5DE1DE7413E003B1F37 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1150,7 +1153,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -1171,7 +1174,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
@@ -1191,7 +1194,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
@@ -1211,7 +1214,7 @@
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
@@ -1250,7 +1253,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1262,7 +1265,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

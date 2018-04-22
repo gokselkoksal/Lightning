@@ -10,7 +10,7 @@ import Foundation
 
 public extension String {
     
-    public func zap_index(_ distance: String.IndexDistance) -> String.Index {
+    public func zap_index(_ distance: Int) -> String.Index {
         return index(startIndex, offsetBy: distance)
     }
     
@@ -30,7 +30,7 @@ public extension String {
         return zap_range(from: range)
     }
     
-    public func zap_character(at distance: String.IndexDistance) -> Character {
+    public func zap_character(at distance: Int) -> Character {
         return self[zap_index(distance)]
     }
     
