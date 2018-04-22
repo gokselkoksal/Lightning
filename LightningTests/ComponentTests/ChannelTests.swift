@@ -19,30 +19,30 @@ class ChannelTests: XCTestCase {
     }
     
     func testUserInterfaceMode() throws {
-        try executeTestCase(mode: .userInterface)
+        try executeTestCase(queue: DispatchQueue.main)
     }
     
     func testTaskMode() throws {
-        try executeTestCase(mode: .task(.background))
-        try executeTestCase(mode: .task(.default))
-        try executeTestCase(mode: .task(.unspecified))
-        try executeTestCase(mode: .task(.userInitiated))
-        try executeTestCase(mode: .task(.userInteractive))
-        try executeTestCase(mode: .task(.utility))
+        try executeTestCase(queue: DispatchQueue.global(qos: .background))
+        try executeTestCase(queue: DispatchQueue.global(qos: .default))
+        try executeTestCase(queue: DispatchQueue.global(qos: .unspecified))
+        try executeTestCase(queue: DispatchQueue.global(qos: .userInitiated))
+        try executeTestCase(queue: DispatchQueue.global(qos: .userInteractive))
+        try executeTestCase(queue: DispatchQueue.global(qos: .utility))
     }
     
     func testCustomMode() throws {
         let queue = DispatchQueue(label: "test.channel", attributes: .concurrent)
-        try executeTestCase(mode: .custom(queue))
+        try executeTestCase(queue: queue)
     }
     
-    private func executeTestCase(mode: Channel<Message>.Mode, file: StaticString = #file, line: UInt = #line) throws {
+    private func executeTestCase(queue: DispatchQueue, file: StaticString = #file, line: UInt = #line) throws {
         let listener1: ChannelListener<Message>? = ChannelListener()
         var listener2: ChannelListener<Message>? = ChannelListener()
         var listener3: ChannelListener<Message>? = ChannelListener()
         let listener4: ChannelListener<Message>? = ChannelListener()
         
-        let channel = Channel<Message>(mode: mode)
+        let channel = Channel<Message>(defaultBroadcastQueue: queue)
         
         XCTAssertEqual(channel.subscriptions.value.count, 0, file: file, line: line)
         

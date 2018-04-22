@@ -16,7 +16,7 @@ public struct WeakArray<Element: AnyObject> {
     
     /// Array of non-nil elements.
     public var elements: [Element] {
-        return weakElements.flatMap { $0.value }
+        return weakElements.compactMap { $0.value }
     }
     
     /// Creates a weak array with given elements.

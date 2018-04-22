@@ -8,30 +8,8 @@
 
 import Foundation
 
+/// An event bus object which provides an API to broadcast messages to its subscribers.
 public class Channel<Value> {
-    
-    public enum Mode {
-        
-        /// Mode to deliver UI updates.
-        case userInterface
-        
-        /// Mode to deliver updates on any task with given quality of service.
-        case task(DispatchQoS.QoSClass)
-        
-        /// Mode to deliver updates on a custom queue.
-        case custom(DispatchQueue)
-        
-        fileprivate func makeQueue() -> DispatchQueue {
-            switch self {
-            case .userInterface:
-                return DispatchQueue.main
-            case .task(let qos):
-                return DispatchQueue.global(qos: qos)
-            case .custom(let queue):
-                return queue
-            }
-        }
-    }
     
     internal class Subscription {
         
@@ -65,14 +43,28 @@ public class Channel<Value> {
     internal var subscriptions: Protected<[Subscription]> = Protected([])
     private let queue: DispatchQueue
     
-    public init(mode: Mode) {
-        self.queue = mode.makeQueue()
+    /// Creates a channel instance.
+    ///
+    /// - Parameter defaultBroadcastQueue: Default queue to use while notifying subscriptions.
+    public init(defaultBroadcastQueue: DispatchQueue = .main) {
+        self.queue = defaultBroadcastQueue
     }
     
+    /// Subscribes given object to the channel. (Notifies on `defaultBroadcastQueue`.)
+    ///
+    /// - Parameters:
+    ///   - object: Object to subscribe.
+    ///   - notifyBlock: Block to call for notification.
     public func subscribe(_ object: AnyObject?, notifyBlock: @escaping (Value) -> Void) {
         self.subscribe(object, queue: self.queue, notifyBlock: notifyBlock)
     }
     
+    /// Subscribes given object to channel.
+    ///
+    /// - Parameters:
+    ///   - object: Object to subscribe.
+    ///   - queue: Queue to notify on.
+    ///   - notifyBlock: Block to call for notification.
     public func subscribe(_ object: AnyObject?, queue: DispatchQueue, notifyBlock: @escaping (Value) -> Void) {
         let subscription = Subscription(object: object, queue: queue, notifyBlock: notifyBlock)
         
@@ -81,6 +73,10 @@ public class Channel<Value> {
         }
     }
     
+    
+    /// Unsubscribes given object from channel.
+    ///
+    /// - Parameter object: Object to remove.
     public func unsubscribe(_ object: AnyObject?) {
         subscriptions.write { list in
             if let foundIndex = list.index(where: { $0.object === object }) {
@@ -89,6 +85,11 @@ public class Channel<Value> {
         }
     }
     
+    /// Broadcasts given value to subscribers.
+    ///
+    /// - Parameters:
+    ///   - value: Value to broadcast.
+    ///   - completion: Completion handler called after notifing all subscribers.
     public func broadcast(_ value: Value, completion: (() -> Void)? = nil) {
         subscriptions.write { [weak self] list in
             guard let strongSelf = self else { return }
