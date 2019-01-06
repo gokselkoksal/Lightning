@@ -176,7 +176,7 @@
 		62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Helpers.swift"; sourceTree = "<group>"; };
 		62D921101DF43880002F0381 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		62E967571DE7559C009ACCE7 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		62E967581DE7559C009ACCE7 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		62E967581DE7559C009ACCE7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		62E967591DE7559C009ACCE7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7D137C351DE72417000D9519 /* Lightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D137C381DE72417000D9519 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Lightning/Info-macOS.plist"; sourceTree = SOURCE_ROOT; };
@@ -289,6 +289,7 @@
 		6270EE771DE08E37009A5B29 = {
 			isa = PBXGroup;
 			children = (
+				62E967561DE75589009ACCE7 /* Metadata */,
 				6270EE831DE08E38009A5B29 /* Lightning */,
 				6270EE8E1DE08E38009A5B29 /* LightningTests */,
 				6270EE821DE08E38009A5B29 /* Products */,
@@ -312,9 +313,7 @@
 		6270EE831DE08E38009A5B29 /* Lightning */ = {
 			isa = PBXGroup;
 			children = (
-				62AF2D7221E17705001109C7 /* Docs */,
 				627FC7451DE3685C001A02E6 /* Sources */,
-				62E967561DE75589009ACCE7 /* Metadata */,
 				7D137C6C1DE72988000D9519 /* Supporting Files */,
 			);
 			path = Lightning;
@@ -381,9 +380,10 @@
 		62E967561DE75589009ACCE7 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				62AF2D7221E17705001109C7 /* Docs */,
 				7D571BBE1DE6DE4800815A89 /* Lightning.podspec */,
 				62E967571DE7559C009ACCE7 /* .travis.yml */,
-				62E967581DE7559C009ACCE7 /* LICENSE.txt */,
+				62E967581DE7559C009ACCE7 /* LICENSE */,
 				62E967591DE7559C009ACCE7 /* README.md */,
 			);
 			name = Metadata;

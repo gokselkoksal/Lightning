@@ -5,7 +5,7 @@
 [![CI Status](http://img.shields.io/travis/gokselkoksal/Lightning.svg?style=flat)](https://travis-ci.org/gokselkoksal/Lightning)
 [![Platform](https://img.shields.io/cocoapods/p/Lightning.svg?style=flat)](http://cocoadocs.org/docsets/Lightning)
 [![Language](https://img.shields.io/badge/swift-4.0-orange.svg)](http://swift.org)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE)
 
 Lightning provides components to make Swift development easier.
 
@@ -276,4 +276,4 @@ Drag and drop `Sources` folder to your project.
 *It's highly recommended to use a dependency manager like `CocoaPods` or `Carthage`.*
 
 ## License
-Lightning is available under the [MIT license](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE.txt).
+Lightning is available under the [MIT license](https://github.com/gokselkoksal/Lightning/blob/master/LICENSE).
