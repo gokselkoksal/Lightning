@@ -8,6 +8,12 @@
 
 import Foundation
 
+public protocol TickerProtocol {
+  var isTicking: Bool { get }
+  func start(interval: TimeInterval, handler: @escaping () -> Void)
+  func stop()
+}
+
 public class TimerController {
   
   public struct State {
@@ -15,36 +21,82 @@ public class TimerController {
     public let interval: TimeInterval
     public fileprivate(set) var remaining: TimeInterval
     public fileprivate(set) var isTicking: Bool = false
+    
     public var isFinished: Bool {
       return remaining == 0.0
     }
   }
   
-  public typealias TickHandler = ((TimerController.State) -> Void)
-  
   public private(set) var state: State
-  public var tickHandler: TickHandler?
-  private var timer: Timer?
+  private let ticker: TickerProtocol
   
-  public init(total: TimeInterval, interval: TimeInterval = 1.0, tickHandler: TickHandler? = nil) {
+  public init(
+    total: TimeInterval,
+    interval: TimeInterval = 1.0,
+    ticker: TickerProtocol = Ticker())
+  {
     self.state = State(
       total: total,
       interval: interval,
       remaining: total,
       isTicking: false
     )
-    self.tickHandler = tickHandler
+    self.ticker = ticker
   }
   
   deinit {
     stopTimer()
   }
   
-  public func startTimer() {
+  public func startTimer(handler: @escaping ((TimerController.State) -> Void)) {
     guard state.isTicking == false else { return }
+    
     state.isTicking = true
-    Timer.scheduledTimer(
-      timeInterval: state.interval,
+    ticker.start(interval: state.interval) { [weak self] in
+      guard let self = self, self.state.isTicking else { return }
+      
+      let newRemaining = self.state.remaining - self.state.interval
+      
+      if newRemaining > 0.0 {
+        self.state.remaining = newRemaining
+      } else {
+        self.state.remaining = 0.0
+      }
+      
+      if self.state.remaining == 0.0 {
+        self.stopTimer()
+      }
+      
+      handler(self.state)
+    }
+  }
+  
+  public func stopTimer() {
+    ticker.stop()
+    state.remaining = 0.0
+    state.isTicking = false
+  }
+}
+
+// MARK: - Tickers
+
+public class Ticker: TickerProtocol {
+  
+  private var internalTimer: Foundation.Timer?
+  private var handler: (() -> Void)?
+  
+  public var isTicking: Bool {
+    return internalTimer != nil
+  }
+  
+  public init() { }
+  
+  public func start(interval: TimeInterval, handler: @escaping () -> Void) {
+    guard isTicking == false else { return }
+    self.handler = handler
+    
+    internalTimer = Timer.scheduledTimer(
+      timeInterval: interval,
       target: self,
       selector: #selector(tick),
       userInfo: nil,
@@ -52,27 +104,54 @@ public class TimerController {
     )
   }
   
-  public func stopTimer() {
-    timer?.invalidate()
-    timer = nil
-    state.remaining = 0.0
-    state.isTicking = false
+  public func stop() {
+    internalTimer?.invalidate()
+    handler = nil
+    internalTimer = nil
   }
   
   @objc private func tick() {
-    guard state.isTicking else { return }
-    let newRemaining = state.remaining - state.interval
-    
-    if newRemaining > 0.0 {
-      state.remaining = newRemaining
-    } else {
-      state.remaining = 0.0
+    handler?()
+  }
+}
+
+public class MockTicker: TickerProtocol {
+  
+  private var handler: (() -> Void)?
+  
+  public var interval: TimeInterval?
+  public var isTicking: Bool {
+    return handler != nil
+  }
+  
+  public init() { }
+  
+  public func start(interval: TimeInterval, handler: @escaping () -> Void) {
+    guard isTicking == false else { return }
+    self.interval = interval
+    self.handler = handler
+  }
+  
+  public func stop() {
+    handler = nil
+  }
+  
+  public func tick(times: Int = 1) {
+    for _ in 0..<times {
+      handler?()
     }
-    
-    tickHandler?(state)
-    
-    if state.remaining == 0.0 {
-      stopTimer()
-    }
+  }
+}
+
+// MARK: - Helpers
+
+extension TimerController.State: Equatable {
+  
+  public static func ==(a: TimerController.State, b: TimerController.State) -> Bool {
+    return a.total == b.total
+      && a.interval == b.interval
+      && a.remaining == b.remaining
+      && a.isTicking == b.isTicking
+      && a.isFinished == b.isFinished
   }
 }

@@ -36,3 +36,13 @@ let bounds = 2..<5
 ```
 
 * Removed `IndexSetConvertible` protocol to further simplify `CollectionChange` implementation. 
+
+* Reworked `TimerController` API. It is now possible to inject a ticker. Tick handler is moved from `init(...)` to `startTimer(...)` function. 
+
+```swift
+let ticker = Ticker() // or MockTicker()
+let timerController = TimerController(total: 60.0, ticker: ticker)
+timerController.startTimer {
+  timerLabel.text = "\(state.remaining) seconds remaining..."
+}
+```
