@@ -20,34 +20,6 @@ public enum Result<Value> {
 ```
 Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
 
-### Channel
-
-A simple event bus implementation for Swift. See this article for more: [Using Channels for Data Flow in Swift](https://medium.com/@gokselkoksal/using-channels-for-data-flow-in-swift-14bbdf27b471)
-
-```swift
-enum Message {
-  case didUpdateTheme(Theme)
-}
-
-let settingsChannel = Channel<Message>()
-
-class SomeView {
-
-  func load() {
-    settingsChannel.subscribe(self) { message in
-      // React to the message here.
-    }
-  }
-}
-
-let view = SomeView()
-view.load()
-
-settingsChannel.broadcast(.didUpdateTheme(.light))
-```
-
-See [this gist](https://gist.github.com/gokselkoksal/4ab590f24305e072a547af46d81c056e) for a real-life example.
-
 ### StringFormatter & StringMask
 Component to format and mask strings with pre-defined patterns.
 
@@ -174,42 +146,6 @@ func addCustomer(_ customer: Customer) -> CollectionChange {
     customers.insert(customer, at: 0)
     return .insertion(0)
 }
-```
-
-### TaskState
-```swift
-public struct TaskState<Value> {   
-    public private(set) var status: TaskStatus = .idle // inProgress, cancelled, finished
-    public private(set) var result: Result<Value>?
-    public private(set) var latestValue: Value?
-}
-```
-Component to model a task through its lifecycle. This can be useful if you have multiple tasks to track separately as in the following example.
-```swift
-var currencyTask: TaskState<Currency> {
-    didSet {
-        // Update currency widget. (Show/hide loading view, show error, show result etc.)
-    }
-}
-var weatherTask: TaskState<Weather> {
-    didSet {
-        // Update weather widget. (Show/hide loading view, show error, show result etc.)
-    }
-}
-```
-
-### Bounds
-
-```swift
-let bounds = Bounds(.inclusive(2), .exclusive(5))
-// A successful test:
-XCTAssertFalse(bounds.contains(0))
-XCTAssertFalse(bounds.contains(1))
-XCTAssertTrue(bounds.contains(2))
-XCTAssertTrue(bounds.contains(3))
-XCTAssertTrue(bounds.contains(4))
-XCTAssertFalse(bounds.contains(5))
-XCTAssertFalse(bounds.contains(6))
 ```
 
 ## Extensions
