@@ -34,3 +34,5 @@ let bounds = Bounds(.inclusive(2), .exclusive(5))
 // is equivalent to:
 let bounds = 2..<5
 ```
+
+* Removed `IndexSetConvertible` protocol to further simplify `CollectionChange` implementation. 
