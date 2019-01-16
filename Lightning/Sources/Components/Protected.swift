@@ -66,7 +66,7 @@ public class Protected<Value> {
         case .async:
             queue.async(flags: .barrier, execute: execution)
         case .sync:
-            queue.sync(execute: execution)
+            queue.sync(flags: .barrier, execute: execution)
         }
     }
 }
