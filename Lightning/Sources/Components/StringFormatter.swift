@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringFormatter: Formatter {
+public class StringFormatter {
     
     public let pattern: String
     public let valueCharacter: Character

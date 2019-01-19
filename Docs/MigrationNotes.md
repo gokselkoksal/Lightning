@@ -46,3 +46,5 @@ timerController.startTimer {
   timerLabel.text = "\(state.remaining) seconds remaining..."
 }
 ```
+
+* Removed redundant `Formatter` protocol. `StringFormatter` no longer conforms to it. 
