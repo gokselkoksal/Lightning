@@ -41,28 +41,3 @@ public struct WeakArray<Element: AnyObject> {
     return weakElements.compactMap({ $0.value })
   }
 }
-
-// MARK: - Deprecated
-
-public extension WeakArray {
-  
-  /// Array of non-nil elements.
-  @available(*, deprecated, message: "Use `strongElements()` instead.")
-  public var elements: [Element] {
-    return strongElements()
-  }
-  
-  /// Removes all wrappers.
-  @available(*, deprecated, message: "Use `weakElements.removeAll()` instead. Will be removed soon.")
-  public mutating func removeAll() {
-    weakElements.removeAll()
-  }
-  
-  /// Wraps given object in `Weak` struct and appends it to `weakElements`.
-  ///
-  /// - Parameter object: Object to append weakly.
-  @available(*, deprecated, message: "Use `append(...)` instead. Will be removed soon.")
-  public mutating func appendWeak(_ object: Element?) {
-    append(object)
-  }
-}
