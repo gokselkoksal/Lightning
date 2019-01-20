@@ -8,13 +8,7 @@
 
 import Foundation
 
-public protocol TickerProtocol {
-  var isTicking: Bool { get }
-  func start(interval: TimeInterval, handler: @escaping () -> Void)
-  func stop()
-}
-
-public class TimerController {
+public final class TimerController {
   
   public struct State {
     public let total: TimeInterval
@@ -78,9 +72,15 @@ public class TimerController {
   }
 }
 
-// MARK: - Tickers
+// MARK: - Ticker
 
-public class Ticker: TickerProtocol {
+public protocol TickerProtocol {
+  var isTicking: Bool { get }
+  func start(interval: TimeInterval, handler: @escaping () -> Void)
+  func stop()
+}
+
+public final class Ticker: TickerProtocol {
   
   private var internalTimer: Foundation.Timer?
   private var handler: (() -> Void)?
@@ -115,7 +115,7 @@ public class Ticker: TickerProtocol {
   }
 }
 
-public class MockTicker: TickerProtocol {
+public final class MockTicker: TickerProtocol {
   
   private var handler: (() -> Void)?
   

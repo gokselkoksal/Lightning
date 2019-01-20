@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringMask {
+public final class StringMask {
   
   public let ranges: [NSRange]
   public let character: Character

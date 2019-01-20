@@ -9,7 +9,7 @@
 import Foundation
 
 /// Wrapper struct to reference objects weakly.
-public class Weak<Value: AnyObject> {
+public final class Weak<Value: AnyObject> {
   
   /// Wrapped object.
   public weak var value: Value?
