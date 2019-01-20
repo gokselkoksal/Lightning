@@ -11,44 +11,44 @@ Lightning provides components to make Swift development easier.
 
 ## Components
 
-### Result
+### Channel
+Channel is now a part of [Rasat](https://github.com/gokselkoksal/Rasat)! :eye:
+
+### Result :mailbox_with_mail:
 ```swift
 public enum Result<Value> {
-    case success(Value)
-    case failure(Error)
+  case success(Value)
+  case failure(Error)
 }
 ```
 Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
 
-### StringFormatter & StringMask
-Component to format and mask strings with pre-defined patterns.
-
-- Format phone number:
+### StringFormatter :pen:
 ```swift
-// Perform 05308808080 -> 0 (530) 880 80 80
+// - Perform 05308808080 -> 0 (530) 880 80 80
 
 let phoneFormatter = StringFormatter(pattern: "# (###) ### ## ##")
 let formattedNumber = phoneFormatter.format("05308808080") // Returns "0 (530) 880 80 80"
 ```
-- Mask & format card number:
-```swift
-// Perform 1111222233334444 -> **** **** 3333 4444
 
-let cardFormatter = StringFormatter("#### #### #### ####")
+### StringMask :see_no_evil:
+```swift
+// - Perform 1111222233334444 -> ********33334444
+
 let cardMask = StringMask(ranges: [NSRange(location: 0, length: 8)])
 let cardMaskStorage = StringMaskStorage(mask: mask)
 
-let cardNo = cardNoLabel.text // Equals to "1111222233334444"
-cardMaskStorage.original = cardNo
-let maskedCardNo = cardMaskStorage.masked // Equals to "********33334444"
-let formattedCardNo = cardFormatter.format(maskedCardNo)
-cardNoLabel.text = formattedCardNo // Equals to "**** **** 3333 4444"
+// 1. Pass it into the storage:
+cardMaskStorage.original = "1111222233334444"
+// 2. Read masked & unmasked value back:
+let cardNo = cardMaskStorage.original     // "1111222233334444"
+let maskedCardNo = cardMaskStorage.masked // "********33334444"
 ```
 
-### Protected
-`Protected` is a thread safe wrapper around values.
+### Atomic :atom_symbol:
+`Atomic` is a thread safe container for values.
 ```swift
-var list = Protected(["item1"])
+var list = Atomic(["item1"])
 
 // Get value:
 let items = list.value
@@ -58,20 +58,22 @@ list.value = ["item1", "item2"]
 
 // Read block:
 list.read { items in
-    print(items)
+  print(items)
 }
 
 // Write block:
 list.write { items in
-    items.append(...)
+  items.append(...)
 }
 ```
 
-### TimerController
+### TimerController :stopwatch:
 `TimerController` is a wrapper around `Timer`, which makes it easy to implement countdowns.
 ```swift
-let timerController = TimerController(total: 60.0) { state in
-    timerLabel.text = "\(state.remaining) seconds remaining..."
+let ticker = Ticker() // or MockTicker()
+let timerController = TimerController(total: 60, interval: 1, ticker: ticker)
+timerController.startTimer { state in
+  timerLabel.text = "\(state.remaining) seconds remaining..."
 }
 ```
 
@@ -85,66 +87,67 @@ Following example shows how it can be used for request cancelling.
 var liveRequests = WeakArray<URLSessionTask>()
 
 func viewDidLoad() {
-    super.viewDidLoad()
-    // Following async requests will be live until we get a response from server.
-    // Keep a weak reference to each to be able to cancel when necessary.
-    let offersRequest = viewModel.getOffers { ... }
-    liveRequests.appendWeak(offersRequest)
-    let favoritesRequest = viewModel.getFavorites { ... }
-    liveRequests.appendWeak(favoritesRequest)
+  super.viewDidLoad()
+  // Following async requests will be live until we get a response from server.
+  // Keep a weak reference to each to be able to cancel when necessary.
+  let offersRequest = viewModel.getOffers { ... }
+  liveRequests.appendWeak(offersRequest)
+  let favoritesRequest = viewModel.getFavorites { ... }
+  liveRequests.appendWeak(favoritesRequest)
 }
 
 func viewWillDisappear() {
-    super.viewWillDisappear()
-    liveRequests.elements.forEach { $0.cancel() }
-    liveRequests.removeAll()
+  super.viewWillDisappear()
+  liveRequests.elements.forEach { $0.cancel() }
+  liveRequests.removeAll()
 }
 ```
 
-### ActivityState
+### ActivityState :hourglass:
 Component to track live activities. Mostly used to show/hide loading view as in the following example.
 
 ```swift
 var activityState = ActivityState() {
-    didSet {
-        guard activityState.isToggled else { return }
-        if activityState.isActive {
-            // Show loading view.
-        } else {
-            // Hide loading view.
-        }
+  didSet {
+    guard activityState.isToggled else { return }
+    if activityState.isActive {
+      // Show loading view.
+    } else {
+      // Hide loading view.
     }
+  }
 }
 
 func someProcess() {
+  activityState.add()
+  asyncCall1() {
+    // ...
     activityState.add()
-    asyncCall1() {
-        // ...
-        activityState.add()
-        asyncCall2() {
-            // ...
-            activityState.remove()
-        }
-        activityState.remove()
+    asyncCall2() {
+      // ...
+      activityState.remove()
     }
+    activityState.remove()
+  }
 }
 ```
-### CollectionChange
+
+### CollectionChange :iphone::calling:
 ```swift
 public enum CollectionChange {
-    case reload
-    case update(IndexPathSetConvertible)
-    case insertion(IndexPathSetConvertible)
-    case deletion(IndexPathSetConvertible)
-    case move(from: IndexPathConvertible, to: IndexPathConvertible)
+  case reload
+  case update(IndexPathSetConvertible)
+  case insertion(IndexPathSetConvertible)
+  case deletion(IndexPathSetConvertible)
+  case move(from: IndexPathConvertible, to: IndexPathConvertible)
 }
 ```
 Enum to encapsulate change in any collection. Can be used to model `UITableView`/`UICollectionView` or any `CollectionType` changes.
 
 ```swift
 func addCustomer(_ customer: Customer) -> CollectionChange {
-    customers.insert(customer, at: 0)
-    return .insertion(0)
+  customers.insert(customer, at: 0)
+  return .insertion(0)
 }
 ```
 
