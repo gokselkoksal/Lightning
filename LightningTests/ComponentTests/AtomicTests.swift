@@ -1,5 +1,5 @@
 //
-//  ProtectedTests.swift
+//  AtomicTests.swift
 //  Lightning
 //
 //  Created by Goksel Koksal on 21/11/2016.
@@ -9,17 +9,17 @@
 import XCTest
 @testable import Lightning
 
-class ProtectedTests: XCTestCase {
+class AtomicTests: XCTestCase {
   
   func testReadWrite_array() {
-    let protectedList = Protected(["item1"])
-    XCTAssert(protectedList.value == ["item1"])
-    protectedList.value = ["item1", "item2"]
-    XCTAssert(protectedList.value == ["item1", "item2"])
-    protectedList.read { items in
+    let atomicList = Atomic(["item1"])
+    XCTAssert(atomicList.value == ["item1"])
+    atomicList.value = ["item1", "item2"]
+    XCTAssert(atomicList.value == ["item1", "item2"])
+    atomicList.read { items in
       XCTAssert(items == ["item1", "item2"])
     }
-    protectedList.write { list in
+    atomicList.write { list in
       list.append("item3")
       list.append("item4")
       list = list.map { string in
@@ -27,23 +27,23 @@ class ProtectedTests: XCTestCase {
         return String(string[index..<string.endIndex])
       }
     }
-    XCTAssert(protectedList.value == ["1", "2", "3", "4"])
+    XCTAssert(atomicList.value == ["1", "2", "3", "4"])
   }
   
   func testReadWrite_int() {
-    let protectedNumber = Protected(1)
-    protectedNumber.write { (number) in
+    let atomicNumber = Atomic(1)
+    atomicNumber.write { (number) in
       number = 2
     }
-    XCTAssertEqual(protectedNumber.value, 2)
+    XCTAssertEqual(atomicNumber.value, 2)
   }
   
   func testReadWrite_string() {
-    let protectedString = Protected("Goksel")
-    protectedString.write { (string) in
+    let atomicString = Atomic("Goksel")
+    atomicString.write { (string) in
       string = "Koksal"
     }
-    XCTAssertEqual(protectedString.value, "Koksal")
+    XCTAssertEqual(atomicString.value, "Koksal")
   }
   
   func testReadWrite_struct() {
@@ -57,10 +57,10 @@ class ProtectedTests: XCTestCase {
       }
     }
     
-    let protectedSomeStruct = Protected(SomeStruct(number: 1))
-    protectedSomeStruct.write { (someStruct) in
+    let atomicStruct = Atomic(SomeStruct(number: 1))
+    atomicStruct.write { (someStruct) in
       someStruct.increment()
     }
-    XCTAssertEqual(protectedSomeStruct.value.number, 2)
+    XCTAssertEqual(atomicStruct.value.number, 2)
   }
 }
