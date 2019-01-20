@@ -168,7 +168,7 @@
 		62A4D6051E09DB590038D5F2 /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		62A4D60A1E09E8590038D5F2 /* StringHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelpersTests.swift; sourceTree = "<group>"; };
 		62ACC1CA1FDCB7F7001DE106 /* ReleaseProcess.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseProcess.md; sourceTree = "<group>"; };
-		62AF2D7321E1771F001109C7 /* MigrationNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MigrationNotes.md; sourceTree = "<group>"; };
+		62AF2D7321E1771F001109C7 /* Changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Changelog.md; sourceTree = "<group>"; };
 		62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Helpers.swift"; sourceTree = "<group>"; };
 		62D921101DF43880002F0381 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		62E967571DE7559C009ACCE7 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
@@ -338,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				62ACC1CA1FDCB7F7001DE106 /* ReleaseProcess.md */,
-				62AF2D7321E1771F001109C7 /* MigrationNotes.md */,
+				62AF2D7321E1771F001109C7 /* Changelog.md */,
 			);
 			path = Docs;
 			sourceTree = "<group>";

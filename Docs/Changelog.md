@@ -1,7 +1,6 @@
+# Changelog
 
-# Migration Notes
-
-## From 2.X.X to 3.0.0
+## Version 3.0.0
 
 * Moved `Channel` into its own framework [Rasat](https://www.github.com/gokselkoksal/Rasat).
   * New vs. old API:
