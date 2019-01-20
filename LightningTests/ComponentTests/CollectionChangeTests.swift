@@ -32,8 +32,8 @@ class CollectionChangeTests: XCTestCase {
   private let move11 = CollectionChange.move(from: 1, to: 1)
   private let move12 = CollectionChange.move(from: 1, to: 2)
   
-  private let indexPath00 = IndexPath(row: 0, section: 0)
-  private let indexPath01 = IndexPath(row: 1, section: 0)
+  private let indexPath00 = IndexPath(indexes: [0, 0])
+  private let indexPath01 = IndexPath(indexes: [0, 1])
   
   func testIndexPathConvertible() {
     let indexPath = 2.asIndexPath()
