@@ -11,8 +11,8 @@ Lightning provides components to make Swift development easier.
 
 ## Components
 
-### Channel
-Channel is now a part of [Rasat](https://github.com/gokselkoksal/Rasat)! :eye:
+### Channel :tokyo_tower:
+Channel is now a part of [Rasat](https://github.com/gokselkoksal/Rasat)!
 
 ### Result :mailbox_with_mail:
 ```swift
@@ -77,7 +77,7 @@ timerController.startTimer { state in
 }
 ```
 
-### Weak & WeakArray
+### Weak & WeakArray :card_file_box:
 - `Weak` is a wrapper to reference an object weakly.
 - `WeakArray` is an `Array` that references its elements weakly. (Similar to `NSPointerArray`.)
 
