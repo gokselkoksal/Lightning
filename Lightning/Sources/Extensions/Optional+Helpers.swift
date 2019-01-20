@@ -9,15 +9,15 @@
 import Foundation
 
 public extension Optional {
-    
-    public struct FoundNilWhileUnwrappingError: Error { }
-    
-    public func unwrap() throws -> Wrapped {
-        switch self {
-        case .some(let wrapped):
-            return wrapped
-        case .none:
-            throw FoundNilWhileUnwrappingError()
-        }
+  
+  public struct FoundNilWhileUnwrappingError: Error { }
+  
+  public func unwrap() throws -> Wrapped {
+    switch self {
+    case .some(let wrapped):
+      return wrapped
+    case .none:
+      throw FoundNilWhileUnwrappingError()
     }
+  }
 }
