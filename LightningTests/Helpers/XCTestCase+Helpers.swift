@@ -9,12 +9,12 @@
 import XCTest
 
 extension XCTestCase {
-    
-    func waitExecution(for taskName: String, timeout: TimeInterval = 0.5, block: (_ finish: @escaping () -> Void) -> Void) {
-        let exp = expectation(description: taskName)
-        block {
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: timeout)
+  
+  func waitExecution(for taskName: String, timeout: TimeInterval = 0.5, block: (_ finish: @escaping () -> Void) -> Void) {
+    let exp = expectation(description: taskName)
+    block {
+      exp.fulfill()
     }
+    wait(for: [exp], timeout: timeout)
+  }
 }

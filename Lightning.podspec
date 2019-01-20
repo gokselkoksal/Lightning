@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Lightning"
-  s.version      = "2.0.1"
+  s.version      = "3.0.0"
   s.summary      = "Lightning provides components to make Swift development easier."
   s.description  = <<-DESC
                     Lightning provides components to make Swift development easier. It
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                     you are modeling your applications.
                    DESC
   s.homepage     = "https://github.com/gokselkoksal/Lightning/"
-  s.license      = { :type => "MIT", :file => "LICENSE.txt" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "Göksel Köksal" => "gokselkoksal@gmail.com" }
   s.social_media_url = "https://twitter.com/gokselkk"
   

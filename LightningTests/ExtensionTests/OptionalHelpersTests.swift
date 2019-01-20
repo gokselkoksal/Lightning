@@ -10,14 +10,14 @@ import XCTest
 @testable import Lightning
 
 class OptionalHelpersTests: XCTestCase {
+  
+  func testExample() throws {
+    var string: String? = "x"
+    XCTAssertEqual(try string.unwrap(), "x")
     
-    func testExample() throws {
-        var string: String? = "x"
-        XCTAssertEqual(try string.unwrap(), "x")
-        
-        string = nil
-        XCTAssertThrowsError(try string.unwrap(), "Expected to throw.") { (error) in
-            XCTAssertTrue(error is Optional<String>.FoundNilWhileUnwrappingError)
-        }
+    string = nil
+    XCTAssertThrowsError(try string.unwrap(), "Expected to throw.") { (error) in
+      XCTAssertTrue(error is Optional<String>.FoundNilWhileUnwrappingError)
     }
+  }
 }
