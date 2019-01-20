@@ -10,23 +10,87 @@ import XCTest
 @testable import Lightning
 
 class ProtectedTests: XCTestCase {
-    
-    func testReadWrite() {
-        let list = Protected(["item1"])
-        XCTAssert(list.value == ["item1"])
-        list.value = ["item1", "item2"]
-        XCTAssert(list.value == ["item1", "item2"])
-        list.read { items in
-            XCTAssert(items == ["item1", "item2"])
+
+    let iterationCount = 5000
+
+    func testValueReadWrite() {
+        let protectedItems = Protected<ContiguousArray<Int>>([])
+
+        DispatchQueue.concurrentPerform(iterations: iterationCount) { i in
+            // Dummy read
+            XCTAssert(protectedItems.value.count >= 0)
+
+            // Dummy write
+            protectedItems.value = [i]
         }
-        list.write { items in
-            items.append("item3")
-            items.append("item4")
-            items = items.map { string in
-                let index = string.index(string.startIndex, offsetBy: 4)
-                return String(string[index..<string.endIndex])
+
+        // If test reaches here without a crash, it is successful!
+        XCTAssert(true)
+    }
+
+    func testSnycWrite() {
+        let protectedItems = Protected<Set<Int>>([])
+
+        DispatchQueue.concurrentPerform(iterations: iterationCount) { i in
+            protectedItems.write(mode: .sync) { items in
+                items.insert(i)
             }
         }
-        XCTAssert(list.value == ["1", "2", "3", "4"])
+
+        Array(0..<iterationCount).forEach { i in
+            XCTAssert(protectedItems.value.contains(i))
+        }
+    }
+
+    func testAsyncWrite() {
+        let protectedItems = Protected<Set<Int>>([])
+
+        DispatchQueue.concurrentPerform(iterations: iterationCount) { i in
+            protectedItems.write(mode: .async) { items in
+                items.insert(i)
+            }
+        }
+
+        Array(0..<iterationCount).forEach { i in
+            XCTAssert(protectedItems.value.contains(i))
+        }
+    }
+
+    func testConcurrentReadAsyncWrite() {
+        let protectedItems = Protected<Set<Int>>([])
+
+        DispatchQueue.concurrentPerform(iterations: iterationCount) { i in
+            protectedItems.read { items in
+                // Dummy read
+                XCTAssert(items.count >= 0)
+            }
+
+            protectedItems.write(mode: .async) { items in
+                items.insert(i)
+            }
+        }
+
+        Array(0..<iterationCount).forEach { i in
+            XCTAssert(protectedItems.value.contains(i))
+        }
+    }
+
+    func testConcurrentReadSyncWrite() {
+        let protectedItems = Protected<Set<Int>>([])
+
+        DispatchQueue.concurrentPerform(iterations: iterationCount) { i in
+            protectedItems.read { items in
+                // Dummy read operation
+                XCTAssert(items.count >= 0)
+            }
+
+            protectedItems.write(mode: .sync) { items in
+                items.insert(i)
+            }
+        }
+
+        Array(0..<iterationCount).forEach { i in
+            XCTAssert(protectedItems.value.contains(i))
+        }
     }
 }
