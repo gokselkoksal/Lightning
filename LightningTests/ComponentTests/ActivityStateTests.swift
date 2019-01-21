@@ -18,16 +18,12 @@ class ActivityStateTests: XCTestCase {
     loadingState.test(isActive: true, count: 1, isToggled: true)
     loadingState.add()
     loadingState.test(isActive: true, count: 2, isToggled: false)
-    try? loadingState.remove()
+    XCTAssertNoThrow(try loadingState.remove())
     loadingState.test(isActive: true, count: 1, isToggled: false)
-    try? loadingState.remove()
+    XCTAssertNoThrow(try loadingState.remove())
     loadingState.test(isActive: false, count: 0, isToggled: true)
-    do {
-      try loadingState.remove()
-    } catch let error as ActivityState.Exception {
-      XCTAssert(error == ActivityState.Exception.nothingToRemove)
-    } catch {
-      XCTFail("Cannot throw anything else.")
+    XCTAssertThrowsError(try loadingState.remove(), "should throw on removal when there's no activity") { (error) in
+      XCTAssertEqual(error as? ActivityState.Exception, ActivityState.Exception.nothingToRemove)
     }
   }
 }
