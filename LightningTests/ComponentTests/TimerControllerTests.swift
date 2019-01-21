@@ -82,7 +82,7 @@ class TimerControllerTests: XCTestCase {
     }
     
     // When:
-    wait(for: [exp], timeout: total + interval)
+    wait(for: [exp], timeout: 0.1)
     
     // Then:
     XCTAssertFalse(ticker.isTicking)
