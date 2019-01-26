@@ -88,6 +88,10 @@
 		62A4D60B1E09E8590038D5F2 /* StringHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4D60A1E09E8590038D5F2 /* StringHelpersTests.swift */; };
 		62A4D60C1E09E8590038D5F2 /* StringHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4D60A1E09E8590038D5F2 /* StringHelpersTests.swift */; };
 		62A4D60D1E09E8590038D5F2 /* StringHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4D60A1E09E8590038D5F2 /* StringHelpersTests.swift */; };
+		62CE9D2821FCFA2800A13C99 /* StringKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */; };
+		62CE9D2921FCFA2800A13C99 /* StringKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */; };
+		62CE9D2A21FCFA2800A13C99 /* StringKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */; };
+		62CE9D2B21FCFA2800A13C99 /* StringKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */; };
 		62D9210C1DF4369D002F0381 /* Dictionary+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */; };
 		62D9210D1DF4369D002F0381 /* Dictionary+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */; };
 		62D9210E1DF4369D002F0381 /* Dictionary+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */; };
@@ -96,6 +100,9 @@
 		62D921121DF43880002F0381 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D921101DF43880002F0381 /* Bundle+Helpers.swift */; };
 		62D921131DF43880002F0381 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D921101DF43880002F0381 /* Bundle+Helpers.swift */; };
 		62D921141DF43880002F0381 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D921101DF43880002F0381 /* Bundle+Helpers.swift */; };
+		62EC83E021FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC83DF21FCFFAC003DC51F /* StringKeyPathTests.swift */; };
+		62EC83E121FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC83DF21FCFFAC003DC51F /* StringKeyPathTests.swift */; };
+		62EC83E221FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC83DF21FCFFAC003DC51F /* StringKeyPathTests.swift */; };
 		7D137C581DE725B2000D9519 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62348C7F1DE0C0490060D4FF /* ActivityState.swift */; };
 		7D137C591DE725B2000D9519 /* CollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62348C831DE0C9250060D4FF /* CollectionChange.swift */; };
 		7D137C5B1DE725B2000D9519 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627FC7461DE369B8001A02E6 /* Atomic.swift */; };
@@ -194,11 +201,13 @@
 		62A4D6051E09DB590038D5F2 /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		62A4D60A1E09E8590038D5F2 /* StringHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelpersTests.swift; sourceTree = "<group>"; };
 		62ACC1CA1FDCB7F7001DE106 /* ReleaseProcess.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseProcess.md; sourceTree = "<group>"; };
+		62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringKeyPath.swift; sourceTree = "<group>"; };
 		62D9210B1DF4369D002F0381 /* Dictionary+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Helpers.swift"; sourceTree = "<group>"; };
 		62D921101DF43880002F0381 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		62E967571DE7559C009ACCE7 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		62E967581DE7559C009ACCE7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		62E967591DE7559C009ACCE7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		62EC83DF21FCFFAC003DC51F /* StringKeyPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringKeyPathTests.swift; sourceTree = "<group>"; };
 		7D137C351DE72417000D9519 /* Lightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D137C381DE72417000D9519 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Lightning/Info-macOS.plist"; sourceTree = SOURCE_ROOT; };
 		7D137C421DE72476000D9519 /* Lightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +300,7 @@
 				62A4D6011E09CD2C0038D5F2 /* StringMaskTests.swift */,
 				620703942387390400AB8708 /* KeyValueStoreTests.swift */,
 				620D9EB82392E27700D50CA6 /* StoredTests.swift */,
+				62EC83DF21FCFFAC003DC51F /* StringKeyPathTests.swift */,
 			);
 			path = ComponentTests;
 			sourceTree = "<group>";
@@ -401,6 +411,7 @@
 				6276BA9A1DFA07390022790E /* TimerController.swift */,
 				7DF37F931E07FA57006AB4A9 /* StringFormatter.swift */,
 				62A4D5FC1E09C4190038D5F2 /* StringMask.swift */,
+				62CE9D2721FCFA2800A13C99 /* StringKeyPath.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -752,6 +763,7 @@
 				6279FFC32385F071000523DE /* KeyValueStore+TypeErasure.swift in Sources */,
 				6276BA9B1DFA07390022790E /* TimerController.swift in Sources */,
 				7DF37F941E07FA57006AB4A9 /* StringFormatter.swift in Sources */,
+				62CE9D2821FCFA2800A13C99 /* StringKeyPath.swift in Sources */,
 				62675E1C204E029900C25154 /* Array+Helpers.swift in Sources */,
 				62348C801DE0C0490060D4FF /* ActivityState.swift in Sources */,
 				62D921111DF43880002F0381 /* Bundle+Helpers.swift in Sources */,
@@ -773,6 +785,7 @@
 				7DF37F9C1E07FC3E006AB4A9 /* StringFormatterTests.swift in Sources */,
 				624B40231DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
 				620D9EB92392E27700D50CA6 /* StoredTests.swift in Sources */,
+				62EC83E021FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */,
 				7DA112481DE373700053DC4E /* AtomicTests.swift in Sources */,
 				623F25722394451400A93B19 /* RandomTestData.swift in Sources */,
 				6280AFC51DE3A14D00A5E4EC /* WeakTests.swift in Sources */,
@@ -801,6 +814,7 @@
 				62675E0F204DF62B00C25154 /* Optional+Helpers.swift in Sources */,
 				6276BA9C1DFA07390022790E /* TimerController.swift in Sources */,
 				62675E1D204E029900C25154 /* Array+Helpers.swift in Sources */,
+				62CE9D2921FCFA2800A13C99 /* StringKeyPath.swift in Sources */,
 				62D921121DF43880002F0381 /* Bundle+Helpers.swift in Sources */,
 				7DF37F951E07FA57006AB4A9 /* StringFormatter.swift in Sources */,
 				7D137C5C1DE725B2000D9519 /* Weak.swift in Sources */,
@@ -826,6 +840,7 @@
 				7D137C601DE725B2000D9519 /* CollectionChange.swift in Sources */,
 				6276BA9E1DFA07390022790E /* TimerController.swift in Sources */,
 				7DF37F9A1E07FA61006AB4A9 /* StringFormatter.swift in Sources */,
+				62CE9D2B21FCFA2800A13C99 /* StringKeyPath.swift in Sources */,
 				62675E2B204E0E5700C25154 /* Array+Helpers.swift in Sources */,
 				62D921141DF43880002F0381 /* Bundle+Helpers.swift in Sources */,
 				7D137C631DE725B2000D9519 /* Weak.swift in Sources */,
@@ -851,6 +866,7 @@
 				62675E10204DF62B00C25154 /* Optional+Helpers.swift in Sources */,
 				6276BA9D1DFA07390022790E /* TimerController.swift in Sources */,
 				62675E1E204E029900C25154 /* Array+Helpers.swift in Sources */,
+				62CE9D2A21FCFA2800A13C99 /* StringKeyPath.swift in Sources */,
 				62D921131DF43880002F0381 /* Bundle+Helpers.swift in Sources */,
 				7DF37F961E07FA57006AB4A9 /* StringFormatter.swift in Sources */,
 				7D137C6A1DE725B3000D9519 /* Weak.swift in Sources */,
@@ -870,6 +886,7 @@
 				62A4D6031E09CD2C0038D5F2 /* StringMaskTests.swift in Sources */,
 				7DF37F9D1E07FC3E006AB4A9 /* StringFormatterTests.swift in Sources */,
 				624B40241DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
+				62EC83E121FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */,
 				7D14F5EE1DE7420E003B1F37 /* AtomicTests.swift in Sources */,
 				623F25732394451400A93B19 /* RandomTestData.swift in Sources */,
 				7D14F5EF1DE7420E003B1F37 /* WeakTests.swift in Sources */,
@@ -892,6 +909,7 @@
 				62A4D6041E09CD2C0038D5F2 /* StringMaskTests.swift in Sources */,
 				7DF37F9E1E07FC3E006AB4A9 /* StringFormatterTests.swift in Sources */,
 				624B40251DFC735700E98A64 /* BundleHelpersTests.swift in Sources */,
+				62EC83E221FCFFAC003DC51F /* StringKeyPathTests.swift in Sources */,
 				7D14F5F41DE7420F003B1F37 /* AtomicTests.swift in Sources */,
 				623F25742394451400A93B19 /* RandomTestData.swift in Sources */,
 				7D14F5F51DE7420F003B1F37 /* WeakTests.swift in Sources */,
