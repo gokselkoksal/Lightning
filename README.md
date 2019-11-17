@@ -16,15 +16,6 @@ Lightning provides components to make Swift development easier.
 ### Channel :tokyo_tower:
 Channel is now a part of [Rasat](https://github.com/gokselkoksal/Rasat)!
 
-### Result :mailbox_with_mail:
-```swift
-public enum Result<Value> {
-  case success(Value)
-  case failure(Error)
-}
-```
-Boxes result of a task with `success` and `failure` cases. Also defines `map` and `flatMap` functions for easy transformation between different types.
-
 ### StringFormatter :pen:
 ```swift
 // - Perform 05308808080 -> 0 (530) 880 80 80
