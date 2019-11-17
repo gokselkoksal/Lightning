@@ -54,19 +54,19 @@ public extension Atomic {
   
   // MARK: Read
   
-  public func syncRead(_ work: ((Value) throws -> Void)) rethrows {
+  func syncRead(_ work: ((Value) throws -> Void)) rethrows {
     try queue.sync {
       try work(_value)
     }
   }
   
-  public func syncRead<T>(_ work: ((Value) throws -> T)) rethrows -> T {
+  func syncRead<T>(_ work: ((Value) throws -> T)) rethrows -> T {
     return try queue.sync {
       return try work(_value)
     }
   }
   
-  public func asyncRead(_ work: @escaping ((Value) -> Void)) {
+  func asyncRead(_ work: @escaping ((Value) -> Void)) {
     return queue.async { [weak self] in
       guard let self = self else { return }
       work(self._value)
@@ -75,19 +75,19 @@ public extension Atomic {
   
   // MARK: Write
   
-  public func syncWrite(_ work: (inout Value) throws -> Void) rethrows {
+  func syncWrite(_ work: (inout Value) throws -> Void) rethrows {
     try queue.sync(flags: .barrier) {
       try work(&_value)
     }
   }
   
-  public func syncWrite<T>(_ work: (inout Value) throws -> T) rethrows -> T {
+  func syncWrite<T>(_ work: (inout Value) throws -> T) rethrows -> T {
     return try queue.sync(flags: .barrier) {
       return try work(&_value)
     }
   }
   
-  public func asyncWrite(_ work: @escaping (inout Value) -> Void) {
+  func asyncWrite(_ work: @escaping (inout Value) -> Void) {
     queue.async(flags: .barrier) { [weak self] in
       guard let self = self else { return }
       work(&self._value)

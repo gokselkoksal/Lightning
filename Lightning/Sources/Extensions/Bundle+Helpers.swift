@@ -10,11 +10,11 @@ import Foundation
 
 public extension Bundle {
   
-  public var zap_shortVersionString: String {
+  var zap_shortVersionString: String {
     return object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
   }
   
-  public var zap_versionString: String {
+  var zap_versionString: String {
     return object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
   }
 }
