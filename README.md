@@ -9,7 +9,7 @@
 
 Lightning provides components to make Swift development easier.
 
-> If you're looking to migrate from an old version, see [changelog](https://github.com/gokselkoksal/Lightning/blob/master/Docs/Changelog.md).
+> If you're looking to migrate from an old version, [see releases](https://github.com/gokselkoksal/Lightning/releases).
 
 ## Components
 
