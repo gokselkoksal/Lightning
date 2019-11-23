@@ -13,6 +13,53 @@ Lightning provides components to make Swift development easier.
 
 ## Components
 
+### Property Wrapper: @Stored :package:
+
+`Stored` is a property wrapper that read/write values using an internal key-value store.
+
+> Unlike widely used `@UserDefault` property wrapper, `@Stored` can internally use any key-value store that conforms to `KeyValueStoreProtocol`. There are two pre-defined key-value stores in Lightning:
+> 
+> * `UserDefaults`
+> * `InMemoryKeyValueStore`: A key-value store that uses an internal dictionary to store data. Useful when unit-testing.
+
+**Definition:**
+
+```swift
+final class UserPreferences {
+
+  @Stored var temperatureUnit: TemperatureUnit?
+  @Stored var weightUnit: WeightUnit
+  
+  // Inject store into wrappers here:
+  init<S: KeyValueStoreProtocol>(store: S) where S.Key == String {
+    _temperatureUnit = Stored(key: "temperature-unit", store: store)
+    _weightUnit = Stored(key: "weight-unit", defaultValue: .grams, store: store)
+}
+```
+
+**Usage in app target:**
+
+```swift
+let store = UserDefaults.standard
+let preferences = UserPreferences(store: store)
+preferences.temperatureUnit = .celsius
+```
+
+**Usage in test target:**
+
+```swift
+let store = InMemoryKeyValueStore<String>() // Internally a simple [String: Any] dictionary.
+let preferences = UserPreferences(store: store)
+preferences.temperatureUnit = .celsius
+```
+
+**Supported types:**
+
+* **Primitives**: `Data`, `String`, `Date`, `NSNumber`, `Int`, `UInt`, `Double`, `Float`, `Bool`, `URL`
+* **Any `RawRepresentable`**: Conform to `Storable` on any `RawRepresentable` type. No extra implementation needed.
+* **Any `Codable`**: Conform to `StorableCodable` on any `Codable` type. No extra implementation needed.
+* **Any `Storable`**: Conform to `Storable` protocol and provide custom implementation for your type.
+
 ### Channel :tokyo_tower:
 Channel is now a part of [Rasat](https://github.com/gokselkoksal/Rasat)!
 
