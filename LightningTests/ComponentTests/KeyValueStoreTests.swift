@@ -30,7 +30,7 @@ class KeyValueStoreTests: XCTestCase {
   }
   
   func testInMemoryStore() throws {
-    try userDefaults.assert(with: data)
+    try inMemoryStore.assert(with: data)
   }
 }
 
