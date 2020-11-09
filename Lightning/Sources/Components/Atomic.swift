@@ -11,7 +11,7 @@ import Foundation
 /// A value register to read/write with locking.
 public final class Atomic<Value> {
   
-  private var queue = DispatchQueue(label: "me.gk.Lightning.Atomic", attributes: .concurrent)
+  private lazy var queue = DispatchQueue(label: "me.gk.Lightning.Atomic-\(UUID().uuidString)", attributes: .concurrent)
   private var _value: Value
   
   /// Current value.
