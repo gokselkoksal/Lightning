@@ -64,8 +64,8 @@ class TimerControllerTests: XCTestCase {
   }
   
   func testRealTicker() throws {
-    let interval: TimeInterval = 0.01
-    let total: TimeInterval = 0.03
+    let interval: TimeInterval = 0.1
+    let total: TimeInterval = 0.3
     let ticker = Ticker()
     let timerController = TimerController(total: total, interval: interval, ticker: ticker)
     
@@ -82,13 +82,13 @@ class TimerControllerTests: XCTestCase {
     }
     
     // When:
-    wait(for: [exp], timeout: 0.1)
+    wait(for: [exp], timeout: 0.35)
     
     // Then:
     XCTAssertFalse(ticker.isTicking)
     XCTAssertEqual(states.count, 3)
-    try states.element(at: 0).assertTicking(total: total, interval: interval, remaining: 0.02)
-    try states.element(at: 1).assertTicking(total: total, interval: interval, remaining: 0.01)
+    try states.element(at: 0).assertTicking(total: total, interval: interval, remaining: 0.2)
+    try states.element(at: 1).assertTicking(total: total, interval: interval, remaining: 0.1)
     try states.element(at: 2).assertStopped(total: total, interval: interval)
   }
 }

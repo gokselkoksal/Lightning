@@ -83,35 +83,52 @@ public protocol TickerProtocol {
 public final class Ticker: TickerProtocol {
   
   private var internalTimer: Foundation.Timer?
-  private var handler: (() -> Void)?
+  private let tolerance: TimeInterval?
+  private let runLoopMode: RunLoop.Mode
   
   public var isTicking: Bool {
     return internalTimer != nil
-  }
+  }  
   
-  public init() { }
+  /// Creates a ticker instance.
+  /// - Parameters:
+  ///   - tolerance: Timer tolerance. Defaults to nil, which is Foundation default. (See `Foundation.Timer.tolerance`)
+  ///   - runLoopMode: Run loop mode for the timer. Defaults to `common`.
+  public init(tolerance: TimeInterval? = nil,
+              runLoopMode: RunLoop.Mode = .common)
+  {
+    self.tolerance = tolerance
+    self.runLoopMode = runLoopMode
+  }
   
   public func start(interval: TimeInterval, handler: @escaping () -> Void) {
     guard isTicking == false else { return }
-    self.handler = handler
     
-    internalTimer = Timer.scheduledTimer(
-      timeInterval: interval,
-      target: self,
-      selector: #selector(tick),
-      userInfo: nil,
-      repeats: true
-    )
+    let timer = Timer(timeInterval: interval, repeats: true) { _ in
+      handler()
+    }
+    // This is an effort to save power. This will tell the scheduling system:
+    // "Look, I want this to run every second, but I don’t care if it’s x
+    // seconds too late." The tolerance will never cause a timer to fire early,
+    // only later. And the tolerance will neither cause a timer to "drift",
+    // i.e. when one timer fire is too late, it won’t affect the scheduled time
+    // of the next timer fire.
+    if let tolerance = tolerance {
+      timer.tolerance = tolerance
+    }
+    // Using `Timer.scheduledTimer(...)` method adds the timer in the default
+    // run loop, which can be busy with UI events at times. When it's busy (if
+    // the user is scrolling like crazy, for example) timer ticks we receive
+    // can get delayed (a few seconds!) That's why we create the timer manually
+    // and schedule it with common mode.
+    // For more: https://learnappmaking.com/timer-swift-how-to/
+    RunLoop.main.add(timer, forMode: runLoopMode)
+    self.internalTimer = timer
   }
   
   public func stop() {
     internalTimer?.invalidate()
-    handler = nil
     internalTimer = nil
-  }
-  
-  @objc private func tick() {
-    handler?()
   }
 }
 
