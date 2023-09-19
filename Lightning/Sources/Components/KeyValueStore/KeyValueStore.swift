@@ -27,7 +27,7 @@ public final class CustomValueKey<Key, Value: Storable> {
 }
 
 /// Store that keeps associated key value pairs.
-public protocol KeyValueStore: class {
+public protocol KeyValueStore: AnyObject {
   associatedtype Key
   
   func set<Value: Storable>(_ value: Value?, for key: CustomValueKey<Key, Value>)
